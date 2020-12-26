@@ -7,6 +7,7 @@ use App\OgyKepviselok;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class FrakciovezetoController extends Controller
 {
@@ -58,8 +59,30 @@ class FrakciovezetoController extends Controller
         $kepviselok = User::where('frakcio_id', '=', trim($authenticatedUser->frakcio_id))->
         whereIn('role', array(4))->get();
 
+        $evek = DB::table('kepviselo_poszt')
+            ->select('ev')
+            ->distinct()
+            ->get();
+
+        $honapok = [
+            1 => 'Január',
+            2 => 'Február',
+            3 => 'Március',
+            4 => 'Április',
+            5 => 'Május',
+            6 => 'Június',
+            7 => 'Július',
+            8 => 'Augusztus',
+            9 => 'Szeptember',
+            10 => 'Október',
+            11 => 'November',
+            12 => 'December',
+        ];
+
         return view('frakciovezeto.statisztika', [
             'kepviselok' => $kepviselok,
+            'evek' => $evek,
+            'honapok' => $honapok,
         ]);
     }
 

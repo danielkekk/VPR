@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
 
@@ -71,12 +72,46 @@
             @include('menu.header_menu')
 
             <div class="content">
-                <label for="kepviselo">Képviselő</label>
-                <select name="kepviselo" id="kepviselo">
-                    <?php foreach($kepviselok as $kepviselo) { ?>
-                    <option value="<?php echo $kepviselo->id; ?>"><?php echo $kepviselo->name; ?></option>
-                    <?php } ?>
-                </select><br>
+                <form>
+                    @csrf
+                    <label for="ev">Év</label>
+                    <select name="ev" id="ev">
+                        <?php foreach($evek as $ev) { ?>
+                        <option value="<?php echo $ev->ev; ?>"><?php echo $ev->ev; ?></option>
+                        <?php } ?>
+                    </select><br>
+
+                    <label for="honap">Hónap</label>
+                    <select name="honap" id="honap">
+                        <?php foreach($honapok as $key => $value) { ?>
+                        <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                        <?php } ?>
+                    </select><br>
+
+                    <label for="kepviselo">Képviselő</label>
+                    <select name="kepviselo" id="kepviselo">
+                        <?php foreach($kepviselok as $kepviselo) { ?>
+                        <option value="<?php echo $kepviselo->id; ?>"><?php echo $kepviselo->name; ?></option>
+                        <?php } ?>
+                    </select>
+                </form><br>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <span id="error_messages"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><b>Statisztikák</b></div>
+                        <div class="panel-body">
+                            táblázat
+                        </div>
+                    </div>
+                </div>
 
                 <div class="col-md-10 col-md-offset-1">
                     <div class="panel panel-default">
@@ -100,13 +135,74 @@
             var ctx;
             var myChart;
 
-            $('#kepviselo').on('click', function() {
+            $('#kepviselo').on('click', function(event) {
+                event.preventDefault();
+
                 Days = new Array();
                 Labels = new Array();
                 Followers = new Array();
-                url = "{{url('kepviselo-poszt')}}" + "/" + $('#kepviselo').val();
+                url = "{{url('kepviselo-poszt')}}";
 
-                $.get(url, function(response){
+                $.ajax({
+                    url: url,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    dataType: 'json',
+                    type: 'post',
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: $("form").serialize(),
+                    success: function( response, textStatus, jQxhr ){
+
+                        response.post_datas.forEach(function(data){
+                            Days.push(data.nap);
+                            Labels.push(data.datum);
+                            Followers.push(data.kovetok_szama);
+                        });
+                        ctx = document.getElementById("canvas").getContext('2d');
+                        ctx.canvas.width = 400;
+                        ctx.canvas.height = 300;
+                        myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels:Days,
+                                datasets: [{
+                                    label: 'Követők száma',
+                                    data: Followers,
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero:true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    },
+                    statusCode: {
+                        400: function(responseObject, textStatus, jqXHR) {
+
+                            let txt = "";
+                            for(let i=0; i<responseObject.responseJSON.errors.length; i++) {
+                                txt += responseObject.responseJSON.errors[i] + "<br>";
+                            }
+
+                            $("#error_messages").html(txt);
+                            //console.log( responseObject.responseJSON.errors);
+                        }
+                    },
+                    error: function( jqXhr, textStatus, errorThrown ){
+                        console.log( errorThrown );
+                    }
+                });
+
+                /*$.get(url, function(response){
                     response.forEach(function(data){
                         Days.push(data.nap);
                         Labels.push(data.datum);
@@ -137,7 +233,7 @@
                             }
                         }
                     });
-                });
+                });*/
             });
         </script>
     </body>

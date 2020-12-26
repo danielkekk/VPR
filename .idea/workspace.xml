@@ -2,184 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ef2035b-d5aa-49b1-b90d-e82a4cceea0e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/verespr.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.styleci.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Business/Statistics/PostStat.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Frakcio.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AccessDeniedController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/JelszoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FrakcioAdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/KepviseloController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/FrakcioAdmin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Frakciovezeto.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Kepviselo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustHosts.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Imports/KepviseloAdatCSVImport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/KepviseloPoszt.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/LocalMediaPoszt.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Media.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/OgyKepviseloPoszt.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/OgyKepviselok.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/OrszMediaPoszt.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/PosztTipusok.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/artisan" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/cache/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/cache.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/cors.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/excel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/hashing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/logging.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/queue.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_23_202621_create_frakciok_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_23_202747_create_kepviselok_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_23_205048_create_poszt_tipusok_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_11_155036_create_ogykepviselo_poszt_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_11_155456_create_ogykepviselok_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_153253_create_media_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_153932_create_localmedia_poszt_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_153946_create_orszmedia_poszt_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/FrakciokSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/OgyKepviselokSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/PosztTipusokSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/web.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/access_denied.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/editkepviseloposzt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/editogykepviseloposzt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/editorszmediaposzt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/kepviseloposztok.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/loadkepviseloadatok.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ogykepviseloposztok.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/orszmediaposztok.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ujfrakcio.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ujkepviselo.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ujkepviseloposzt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ujogykepviselo.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ujogykepviseloposzt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ujorszmedia.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ujorszmediaposzt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/jelszomodosit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakcioadmin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakcioadmin/fra-editkepviseloposzt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakcioadmin/fra-editlocalmediaposzt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakcioadmin/fra-kepviseloposztok.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakcioadmin/fra-localmediaposztok.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakcioadmin/fra-ujkepviselo.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakcioadmin/fra-ujkepviseloposzt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakcioadmin/fra-ujlocalmedia.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakcioadmin/fra-ujlocalmediaposzt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakciovezeto.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakciovezeto/frakciovezeto_statisztika.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakciovezeto/localmedia_statisztika.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakciovezeto/ogykepviselok_statisztika.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakciovezeto/orszmedia_statisztika.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/kepviselo.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/kepviseloposztok.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/menu/admin_main_menu.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/menu/header_menu.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/menu/main_menu.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/cache/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-NdOxPTwVKaRuSvowTqdlNCK6ZlHEc1Sv.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/testing/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/views/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/logs/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/CreatesApplication.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -193,14 +20,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="97" selection-start-line="97" selection-end-line="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="893" selection-start-line="893" selection-end-line="893" />
-              <folding>
-                <element signature="e#40#77#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="264">
+              <caret line="364" column="22" selection-start-line="364" selection-start-column="22" selection-end-line="364" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -208,8 +41,8 @@
       <file leaf-file-name="FrakciovezetoController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="70" column="9" lean-forward="true" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+            <state relative-caret-position="164">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="e#40#54#0#PHP" expanded="true" />
               </folding>
@@ -217,29 +50,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PosztTipusokSeeder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/PosztTipusokSeeder.php">
+      <file leaf-file-name="StatisztikaController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            <state relative-caret-position="442">
+              <caret line="92" column="8" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
+              <folding>
+                <element signature="e#40#68#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserSeeder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/UserSeeder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="statisztika.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="statisztika.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="102" column="37" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+            <state relative-caret-position="422">
+              <caret line="159" column="50" lean-forward="true" selection-start-line="159" selection-start-column="50" selection-end-line="159" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -247,7 +74,7 @@
       <file leaf-file-name="frakciovezeto_statisztika.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/frakciovezeto_statisztika.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="1649">
               <caret line="97" column="12" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="30" />
             </state>
           </provider>
@@ -271,26 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Frakcio.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Frakcio.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="loadkepviseloadatok.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/loadkepviseloadatok.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="78" column="138" selection-start-line="78" selection-start-column="138" selection-end-line="78" selection-end-column="138" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>kep</find>
-      <find>editKepviseloPosztView</find>
       <find>kepvi</find>
       <find>OrszMedia</find>
       <find>Orsz</find>
@@ -319,6 +130,8 @@
       <find>letezik</find>
       <find>stat_poszt_sum</find>
       <find>$ujposzt</find>
+      <find>kepviseloPoszt</find>
+      <find>data</find>
     </findStrings>
     <replaceStrings>
       <replace>LocalMedia</replace>
@@ -326,10 +139,12 @@
       <replace>Local</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/resources/views/polgarmester.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/FrakcioAdmin.php" />
         <option value="$PROJECT_DIR$/resources/views/frakcioadmin/fra-editkepviseloposzt.blade.php" />
@@ -369,17 +184,18 @@
         <option value="$PROJECT_DIR$/resources/views/frakciovezeto/orszmedia_statisztika.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frakciovezeto/localmedia_statisztika.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frakciovezeto/ogykepviselok_statisztika.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php" />
         <option value="$PROJECT_DIR$/resources/views/frakciovezeto/frakciovezeto_statisztika.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/menu/header_menu.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/loadkepviseloadatok.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/KepviseloAdatCSV.php" />
         <option value="$PROJECT_DIR$/app/Imports/KepviseloAdatCSVImport.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.json" />
         <option value="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" />
       </list>
     </option>
   </component>
@@ -524,6 +340,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -688,7 +505,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -762,23 +578,26 @@
       <workItem from="1608378640969" duration="6499000" />
       <workItem from="1608575340773" duration="6128000" />
       <workItem from="1608623522668" duration="1294000" />
+      <workItem from="1608651364410" duration="744000" />
+      <workItem from="1608986770324" duration="14887000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142708000" />
+    <option name="totallyTimeSpent" value="158339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37651005" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3872483" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -800,34 +619,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/seeds/OgyKepviselokSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/OgyKepviselok.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="32" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="21" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/OgyKepviseloPoszt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="24" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/LocalMediaPoszt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/OrszMediaPoszt.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -968,24 +759,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="54" column="45" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/ujfrakcio.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="36" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1073,49 +850,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/PosztTipusokSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="340">
           <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/UserSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="510">
           <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/frakciovezeto_statisztika.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="97" column="12" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/console.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="776" lean-forward="true" selection-start-line="3" selection-start-column="776" selection-end-line="3" selection-end-column="776" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Validator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Validation/Validator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="893" selection-start-line="893" selection-end-line="893" />
-          <folding>
-            <element signature="e#40#77#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="264">
+          <caret line="364" column="22" selection-start-line="364" selection-start-column="22" selection-end-line="364" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="70" column="9" lean-forward="true" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+        <state relative-caret-position="164">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
           <folding>
             <element signature="e#40#54#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/frakciovezeto_statisztika.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="97" column="12" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="30" />
+        <state relative-caret-position="422">
+          <caret line="159" column="50" lean-forward="true" selection-start-line="159" selection-start-column="50" selection-end-line="159" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="102" column="37" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+        <state relative-caret-position="442">
+          <caret line="92" column="8" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

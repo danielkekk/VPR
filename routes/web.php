@@ -86,7 +86,7 @@ Route::get('/fra-deletelocalmediaposztbyid/{kpid}/{pid}', 'FrakcioAdminControlle
 
 /*frakciovezeto cuccok*/
 Route::get('/statisztika', 'FrakciovezetoController@getKepviselokStatisztika')->name('statisztika')->middleware('frakciovezeto');
-Route::get('/kepviselo-poszt/{kepviselo}', 'StatisztikaController@kepviseloPoszt')->name('kepviselo-poszt')->middleware('frakciovezeto');
+Route::post('/kepviselo-poszt', 'StatisztikaController@kepviseloPoszt')->name('kepviselo-poszt')->middleware('frakciovezeto');
 Route::get('/statisztika-frakciovezeto', 'FrakciovezetoController@getFrakciovezetoStatisztika')->name('statisztika-frakciovezeto')->middleware('frakciovezeto');
 Route::get('/statisztika-frakciovezeto-poszt/{kepviselo}', 'StatisztikaController@frakciovezetoPoszt')->name('statisztika-frakciovezeto-poszt')->middleware('frakciovezeto');
 Route::get('/statisztika-ogykepviselo', 'FrakciovezetoController@getOgyKepviselokStatisztika')->name('statisztika-ogykepviselo')->middleware('frakciovezeto');
