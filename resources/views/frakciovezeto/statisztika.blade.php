@@ -45,7 +45,9 @@
             }
 
             .content {
-                text-align: center;
+                position: relative;
+                margin: 1000px 5px 15px 20px;
+                text-align: left;
             }
 
             .title {
@@ -96,31 +98,38 @@
                     </select>
                 </form><br>
 
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <span id="error_messages"></span>
-                        </div>
-                    </div>
-                </div>
+                <span id="error_messages"></span><br>
+
+                <b>Statisztikák</b><br>
+                <table id="myTable"></table><br>
 
                 <div class="col-md-10 col-md-offset-1">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><b>Statisztikák</b></div>
-                        <div class="panel-body">
-                            táblázat
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="panel panel-default">
-                        <div class="panel-heading"><b>Charts</b></div>
+                        <div class="panel-heading"><b>Poszt típusok</b></div>
                         <div class="panel-body">
                             <canvas id="canvas" height="300" width="400"></canvas>
                         </div>
                     </div>
-                </div>
+                </div><br>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><b>Követők száma</b></div>
+                        <div class="panel-body">
+                            <canvas id="canvas_kovetok_szama" height="300" width="600"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><b>Megosztási hatékonyság</b></div>
+                        <div class="panel-body">
+                            <canvas id="canvas_megosztasi_hatekonysag" height="300" width="600"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+
             </div>
         </div>
 
@@ -154,36 +163,206 @@
                     data: $("form").serialize(),
                     success: function( response, textStatus, jQxhr ){
 
-                        response.post_datas.forEach(function(data){
-                            Days.push(data.nap);
-                            Labels.push(data.datum);
-                            Followers.push(data.kovetok_szama);
-                        });
+                        //ide a kepviselo adatokat
+                        //felépítjük a táblázatot
+                        let table = document.getElementById("myTable");
+                        while(table.hasChildNodes())
+                        {
+                            table.removeChild(table.firstChild);
+                        }
+                        let rowa = table.insertRow(0);
+                        let cella = rowa.insertCell(0);
+                        cella.innerHTML = "Követők száma: " + response.kepviselo_datas.kovetok_szama;
+                        cella.colSpan = "6";
+                        let rowb = table.insertRow(0);
+                        let cellb = rowb.insertCell(0);
+                        cellb.innerHTML = "Új követők: " + response.kepviselo_datas.uj_kovetok;
+                        cellb.colSpan = "6";
+
+                        let row = table.insertRow(0);
+                        let cell1 = row.insertCell(0);
+                        cell1.innerHTML = "Átlagos hatékonyság: " + response.kepviselo_datas.sum_atlag_hm;
+                        cell1.colSpan = "6";
+                        let row1 = table.insertRow(0);
+                        let cell2 = row1.insertCell(0);
+                        cell2.innerHTML = "Átlag napi poszt: " + response.kepviselo_datas.atlag_napi_poszt;
+                        cell2.colSpan = "6";
+                        let row2 = table.insertRow(0);
+                        let cell3 = row2.insertCell(0);
+                        cell3.innerHTML = "Inaktív napok száma: " + response.kepviselo_datas.inaktiv_napok;
+                        cell3.colSpan = "6";
+                        let row3 = table.insertRow(0);
+                        let cell4 = row3.insertCell(0);
+                        cell4.innerHTML = "Reakciók: " + response.kepviselo_datas.sum_reakciok;
+                        cell4.colSpan = "6";
+                        let row4 = table.insertRow(0);
+                        let cell5 = row4.insertCell(0);
+                        let cell6 = row4.insertCell(1);
+                        let cell7 = row4.insertCell(2);
+                        let cell8 = row4.insertCell(3);
+                        let cell9 = row4.insertCell(4);
+                        let cell10 = row4.insertCell(5);
+                        cell5.innerHTML = "" + response.kepviselo_datas.sum_poszt;
+                        cell6.innerHTML = "" + response.kepviselo_datas.sum_altalanos;
+                        cell7.innerHTML = "" + response.kepviselo_datas.sum_alpolg;
+                        cell8.innerHTML = "" + response.kepviselo_datas.sum_polg;
+                        cell9.innerHTML = "" + response.kepviselo_datas.sum_privat;
+                        cell10.innerHTML = "" + response.kepviselo_datas.sum_ogykepviselo;
+                        let row5 = table.insertRow(0);
+                        let cell11 = row5.insertCell(0);
+                        let cell12 = row5.insertCell(1);
+                        let cell13 = row5.insertCell(2);
+                        let cell14 = row5.insertCell(3);
+                        let cell15 = row5.insertCell(4);
+                        let cell16 = row5.insertCell(5);
+                        cell11.innerHTML = "Összes poszt";
+                        cell12.innerHTML = "Általános";
+                        cell13.innerHTML = "Alpolgármesteri";
+                        cell14.innerHTML = "Polgármesteri";
+                        cell15.innerHTML = "Személyes";
+                        cell16.innerHTML = "Ogy. képviselő";
+
                         ctx = document.getElementById("canvas").getContext('2d');
                         ctx.canvas.width = 400;
                         ctx.canvas.height = 300;
                         myChart = new Chart(ctx, {
-                            type: 'bar',
+                            type: 'polarArea',
                             data: {
-                                labels:Days,
                                 datasets: [{
-                                    label: 'Követők száma',
-                                    data: Followers,
-                                    borderWidth: 1
-                                }]
+                                    data: [response.kepviselo_datas.sum_altalanos,
+                                        response.kepviselo_datas.sum_alpolg,
+                                        response.kepviselo_datas.sum_polg,
+                                        response.kepviselo_datas.sum_privat,
+                                        response.kepviselo_datas.sum_ogykepviselo]
+                                }],
+                                labels: [
+                                    'Általános',
+                                    'Alpolgármesteri',
+                                    'Polgármesteri',
+                                    'Személyes',
+                                    'Ogy képviselő',
+                                ]
                             },
                             options: {
                                 responsive: true,
                                 maintainAspectRatio: false,
+                            }
+                        });
+
+
+
+                        /*response.post_datas.forEach(function(data){
+                            Days.push(data.nap);
+                            Labels.push(data.datum);
+                            Followers.push(data.kovetok_szama);
+                        });*/
+                        ctx = document.getElementById("canvas_kovetok_szama").getContext('2d');
+                        ctx.canvas.width = 600;
+                        ctx.canvas.height = 300;
+                        let kovSzamaLabels = [];
+                        let kovSzamaValues = [];
+
+
+                       for (const prop in response.post_datas) {
+                            console.log(": " + JSON.stringify(response.post_datas[prop][1]));
+                            kovSzamaLabels.push(response.post_datas[prop][0]);
+                            kovSzamaValues.push(response.post_datas[prop][1]);
+                        }
+
+                        myChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: kovSzamaLabels,
+                                datasets: [{
+                                    label: 'Követők száma',
+                                    fill: false,
+                                    data: kovSzamaValues,
+                                    yAxisID: 'y-axis-1',
+                                    lineTension: 0.1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                hoverMode: 'index',
+                                stacked: false,
+                                title: {
+                                    display: true,
+                                    text: 'Követők száma'
+                                },
                                 scales: {
                                     yAxes: [{
-                                        ticks: {
-                                            beginAtZero:true
-                                        }
-                                    }]
+                                        type: 'linear',
+                                        display: true,
+                                        position: 'left',
+                                        id: 'y-axis-1',
+                                    }],
                                 }
                             }
                         });
+
+
+
+                        ctx = document.getElementById("canvas_megosztasi_hatekonysag").getContext('2d');
+                        ctx.canvas.width = 600;
+                        ctx.canvas.height = 300;
+                       // let kovSzamaLabels = [];
+                        //let kovSzamaValues = [];
+
+
+                        /*for (const prop in response.post_datas) {
+                            console.log(": " + JSON.stringify(response.post_datas[prop][1]));
+                            kovSzamaLabels.push(response.post_datas[prop][0]);
+                            kovSzamaValues.push(response.post_datas[prop][1]);
+                        }*/
+                        myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                                datasets: [{
+                                    type: 'bar',
+                                    label: 'Megosztás',
+                                    backgroundColor: '#fff333',
+                                    data: [
+                                        300,
+                                        400,
+                                        500,
+                                        600,
+                                        4232,
+                                        400,
+                                        500,
+                                    ],
+                                    borderColor: 'white',
+                                    borderWidth: 2
+                                }, {
+                                    type: 'line',
+                                    label: 'Reakciók',
+                                    borderColor: '#999933',
+                                    borderWidth: 2,
+                                    fill: false,
+                                    data: [
+                                        1000,
+                                        2000,
+                                        3000,
+                                        4000,
+                                        5000,
+                                        4000,
+                                        5000
+                                    ]
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                title: {
+                                    display: true,
+                                    text: 'Megosztási hatékonyság'
+                                },
+                                tooltips: {
+                                    mode: 'index',
+                                    intersect: true
+                                }
+                            }
+                        });
+
                     },
                     statusCode: {
                         400: function(responseObject, textStatus, jqXHR) {
@@ -201,39 +380,6 @@
                         console.log( errorThrown );
                     }
                 });
-
-                /*$.get(url, function(response){
-                    response.forEach(function(data){
-                        Days.push(data.nap);
-                        Labels.push(data.datum);
-                        Followers.push(data.kovetok_szama);
-                    });
-                    ctx = document.getElementById("canvas").getContext('2d');
-                    ctx.canvas.width = 400;
-                    ctx.canvas.height = 300;
-                    myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels:Days,
-                            datasets: [{
-                                label: 'Követők száma',
-                                data: Followers,
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero:true
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                });*/
             });
         </script>
     </body>

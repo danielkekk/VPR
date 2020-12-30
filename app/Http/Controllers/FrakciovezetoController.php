@@ -59,28 +59,62 @@ class FrakciovezetoController extends Controller
         $kepviselok = User::where('frakcio_id', '=', trim($authenticatedUser->frakcio_id))->
         whereIn('role', array(4))->get();
 
+        //TODO csak a frakcióba tartozó képviselőkhöz tartozó évek
         $evek = DB::table('kepviselo_poszt')
             ->select('ev')
             ->distinct()
             ->get();
 
         $honapok = [
-            1 => 'Január',
-            2 => 'Február',
-            3 => 'Március',
-            4 => 'Április',
-            5 => 'Május',
-            6 => 'Június',
-            7 => 'Július',
-            8 => 'Augusztus',
-            9 => 'Szeptember',
-            10 => 'Október',
-            11 => 'November',
-            12 => 'December',
+            '01' => 'Január',
+            '02' => 'Február',
+            '03' => 'Március',
+            '04' => 'Április',
+            '05' => 'Május',
+            '06' => 'Június',
+            '07' => 'Július',
+            '08' => 'Augusztus',
+            '09' => 'Szeptember',
+            '10' => 'Október',
+            '11' => 'November',
+            '12' => 'December',
         ];
 
         return view('frakciovezeto.statisztika', [
             'kepviselok' => $kepviselok,
+            'evek' => $evek,
+            'honapok' => $honapok,
+        ]);
+    }
+
+    public function getHaviStatisztika()
+    {
+        $authenticatedUser = Auth::user();
+        if(!$authenticatedUser || !isset($authenticatedUser->frakcio_id)) {
+            //TODO hiba
+        }
+
+        $evek = DB::table('kepviselo_poszt')
+            ->select('ev')
+            ->distinct()
+            ->get();
+
+        $honapok = [
+            '01' => 'Január',
+            '02' => 'Február',
+            '03' => 'Március',
+            '04' => 'Április',
+            '05' => 'Május',
+            '06' => 'Június',
+            '07' => 'Július',
+            '08' => 'Augusztus',
+            '09' => 'Szeptember',
+            '10' => 'Október',
+            '11' => 'November',
+            '12' => 'December',
+        ];
+
+        return view('frakciovezeto.statisztika_havi', [
             'evek' => $evek,
             'honapok' => $honapok,
         ]);
