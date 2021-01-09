@@ -12,34 +12,53 @@ class PosztTipusokSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('poszt_tipusok')->insert([
             'id' => 1,
-            'code' => 'polgarmesteri',
-            'web_nev' => 'Polgármesteri',
+            'code' => 'sajat',
+            'web_nev' => 'Saját',
         ]);
 
         DB::table('poszt_tipusok')->insert([
             'id' => 2,
-            'code' => 'alpolgarmesteri',
-            'web_nev' => 'Alpolgármesteri',
-        ]);
-
-        DB::table('poszt_tipusok')->insert([
-            'id' => 3,
-            'code' => 'altalanos',
-            'web_nev' => 'Általános',
-        ]);
-
-        DB::table('poszt_tipusok')->insert([
-            'id' => 4,
             'code' => 'szemelyes',
             'web_nev' => 'Személyes',
         ]);
 
         DB::table('poszt_tipusok')->insert([
+            'id' => 3,
+            'code' => 'polgarmesteri',
+            'web_nev' => 'Polgármesteri',
+        ]);
+
+        DB::table('poszt_tipusok')->insert([
+            'id' => 4,
+            'code' => 'alpolgarmesteri',
+            'web_nev' => 'Alpolgármesteri',
+        ]);
+
+        DB::table('poszt_tipusok')->insert([
             'id' => 5,
-            'code' => 'ogykepviselo',
-            'web_nev' => 'Országgyűlési képviselő',
+            'code' => 'csoportoldal',
+            'web_nev' => 'Csoport oldal',
+        ]);
+
+        DB::table('poszt_tipusok')->insert([
+            'id' => 6,
+            'code' => 'media',
+            'web_nev' => 'Média',
+        ]);
+
+        DB::table('poszt_tipusok')->insert([
+            'id' => 7,
+            'code' => 'kepviselotars',
+            'web_nev' => 'Képviselőtárs',
+        ]);
+
+        DB::table('poszt_tipusok')->insert([
+            'id' => 8,
+            'code' => 'egyeb',
+            'web_nev' => 'Egyéb',
         ]);
     }
 }

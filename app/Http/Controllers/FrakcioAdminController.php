@@ -81,7 +81,7 @@ class FrakcioAdminController extends Controller
     public function ujKepviseloPoszt()
     {
         $authenticatedUser = Auth::user();
-        $kepviselok = User::where('frakcio_id','=',trim($authenticatedUser->frakcio_id))->get();
+        $kepviselok = User::where('frakcio_id','=',trim($authenticatedUser->frakcio_id))->whereIn('role', [3,4])->get();
 
         return view('frakcioadmin.fra-ujkepviseloposzt', [
             'kepviselok' => $kepviselok,

@@ -88,7 +88,7 @@ class StatisztikaController extends Controller
             ])
             ->orderBy('nap', 'ASC')
             ->get();
-        $napokSzama = cal_days_in_month(CAL_GREGORIAN,(int)$request->honap,(int)$request->ev);
+        $napokSzama = cal_days_in_month(CAL_GREGORIAN,(int)substr($request->honap, -1),(int)$request->ev);
 
         $sum_poszt = 0;
         $sum_reakciok = 0;
@@ -128,6 +128,7 @@ class StatisztikaController extends Controller
 
 
         //a havi összes poszt számát
+        $result = [];
         $kovetokSzama = DB::table('kepviselo_poszt')
             ->select('ev','honap','nap','kovetok_szama')
             ->where([
@@ -137,29 +138,31 @@ class StatisztikaController extends Controller
             ])
             ->orderBy('nap', 'ASC')
             ->get();
-        $kepviseloDatas['kovetok_szama'] = ($kovetokSzama->last())->kovetok_szama;
-        $kepviseloDatas['uj_kovetok'] = ($kovetokSzama->last())->kovetok_szama - ($kovetokSzama->first())->kovetok_szama;
 
-        $result = [];
-        $aktualisKovSzama = $kovetokSzama[0]->kovetok_szama;
+        if($kovetokSzama->count() != 0) {
+            $kepviseloDatas['kovetok_szama'] = ($kovetokSzama->count() != 0) ? ($kovetokSzama->last())->kovetok_szama : 0;
+            $kepviseloDatas['uj_kovetok'] = ($kovetokSzama->count() != 0) ? (($kovetokSzama->last())->kovetok_szama - ($kovetokSzama->first())->kovetok_szama) : 0;
 
-        foreach($kovetokSzama as $row) {
-            $key = 'nap_'.str_pad($row->nap, 2, "0", STR_PAD_LEFT);
-            $result[$key] = [
-                $row->honap . '. ' . str_pad($row->nap, 2, "0", STR_PAD_LEFT) . '.',
-                $row->kovetok_szama
-            ];
-        }
+            $aktualisKovSzama = $kovetokSzama[0]->kovetok_szama;
 
-        for($i=0; $i<$napokSzama; $i++) {
-            $key = 'nap_'.str_pad(($i+1), 2, "0", STR_PAD_LEFT);
-            if(isset($result[$key])) {
-                $aktualisKovSzama = $result[$key][1];
-            } else {
+            foreach($kovetokSzama as $row) {
+                $key = 'nap_'.str_pad($row->nap, 2, "0", STR_PAD_LEFT);
                 $result[$key] = [
-                    $request->honap . '. ' . str_pad(($i+1), 2, "0", STR_PAD_LEFT) . '.',
-                    $aktualisKovSzama
+                    $row->honap . '. ' . str_pad($row->nap, 2, "0", STR_PAD_LEFT) . '.',
+                    $row->kovetok_szama
                 ];
+            }
+
+            for($i=0; $i<$napokSzama; $i++) {
+                $key = 'nap_'.str_pad(($i+1), 2, "0", STR_PAD_LEFT);
+                if(isset($result[$key])) {
+                    $aktualisKovSzama = $result[$key][1];
+                } else {
+                    $result[$key] = [
+                        $request->honap . '. ' . str_pad(($i+1), 2, "0", STR_PAD_LEFT) . '.',
+                        $aktualisKovSzama
+                    ];
+                }
             }
         }
 
@@ -225,7 +228,7 @@ class StatisztikaController extends Controller
             return response()->json($result, 400);
         }
 
-        $napokSzama = cal_days_in_month(CAL_GREGORIAN,$request->honap,$request->ev);
+        $napokSzama = cal_days_in_month(CAL_GREGORIAN,(int)substr($request->honap, -1),(int)$request->ev);
 
 
         //inaktiv napok szama
@@ -234,7 +237,7 @@ class StatisztikaController extends Controller
                 WHERE users_id IN (SELECT id FROM users WHERE frakcio_id=? AND role IN (3,4)) AND kp.ev=? AND kp.honap=?
                 GROUP BY kp.users_id, us.name
                 ORDER BY COUNT(kp.users_id) ASC;';
-        $inaktivResult = DB::select($sql, [trim($authenticatedUser->frakcio_id),(int)$request->ev,(int)$request->honap]);
+        $inaktivResult = DB::select($sql, [trim($authenticatedUser->frakcio_id),(int)$request->ev,$request->honap]);
         foreach($inaktivResult as $res) {
             $response['inaktivNapok'][] = [
                 trim($res->name),
@@ -250,7 +253,7 @@ class StatisztikaController extends Controller
                 WHERE kp.users_id IN (SELECT id FROM users WHERE frakcio_id=? AND role IN (3,4)) AND kp.ev=? AND kp.honap=?
                 GROUP BY kp.users_id, us.name
                 ORDER BY SUM(kp.stat_poszt_sum) DESC;';
-        $inaktivResult = DB::select($sql, [trim($authenticatedUser->frakcio_id),(int)$request->ev,(int)$request->honap]);
+        $inaktivResult = DB::select($sql, [trim($authenticatedUser->frakcio_id),(int)$request->ev,$request->honap]);
         foreach($inaktivResult as $res) {
             $response['posztokSzama'][] = [
                 trim($res->name),
@@ -263,13 +266,15 @@ class StatisztikaController extends Controller
                 WHERE kp.users_id IN (SELECT id FROM users WHERE frakcio_id=? AND role IN (3,4)) AND kp.ev=? AND kp.honap=?
                 GROUP BY kp.users_id, us.name
                 ORDER BY SUM(kp.stat_reakciok_sum) DESC;';
-        $inaktivResult = DB::select($sql, [trim($authenticatedUser->frakcio_id),(int)$request->ev,(int)$request->honap]);
+        $inaktivResult = DB::select($sql, [trim($authenticatedUser->frakcio_id),$request->ev,$request->honap]);
         foreach($inaktivResult as $res) {
             $response['reakciokSzama'][] = [
                 trim($res->name),
                 $res->reakciok_szama
             ];
         }
+
+        //print_r($inaktivResult); exit;
 
         //követők száma
         //hónap utolsó napján
@@ -282,7 +287,7 @@ class StatisztikaController extends Controller
         $inaktivResult = DB::select($sql, [
             trim($authenticatedUser->frakcio_id),
             (int)$request->ev,
-            (int)$request->honap,
+            $request->honap,
             $napokSzama]);
         foreach($inaktivResult as $res) {
             $response['kovetokSzama'][] = [
@@ -290,7 +295,6 @@ class StatisztikaController extends Controller
                 $res->kovetok_szama
             ];
         }
-
 
         //új követők száma
         //ujKovetokSzama
@@ -302,16 +306,18 @@ class StatisztikaController extends Controller
                 ->select('ev','honap','nap','kovetok_szama')
                 ->where([
                     ['users_id','=',intval($kpv->id)],
-                    ['ev','=',(int)$request->ev],
-                    ['honap','=',(int)$request->honap],
+                    ['ev','=',$request->ev],
+                    ['honap','=',$request->honap],
                 ])
                 ->orderBy('nap', 'ASC')
                 ->get();
 
-            $response['ujKovetokSzama'][] = [
-                trim($kpv->name),
-                ($kovetokSzama->last())->kovetok_szama - ($kovetokSzama->first())->kovetok_szama
-            ];
+            if($kovetokSzama->count() != 0) {
+                $response['ujKovetokSzama'][] = [
+                    trim($kpv->name),
+                    ($kovetokSzama->last())->kovetok_szama - ($kovetokSzama->first())->kovetok_szama
+                ];
+            }
         }
 
 

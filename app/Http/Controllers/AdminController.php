@@ -80,7 +80,7 @@ class AdminController extends Controller
 
     public function ujKepviseloPoszt()
     {
-        $kepviselok = User::all();
+        $kepviselok = User::whereIn('role', [3,4])->get();
 
         //lekérdezni az összes posztot
         //kirakni egy gomb szerkesztés adatok, egy gomb törlés,
@@ -862,7 +862,7 @@ class AdminController extends Controller
     public function loadKepviseloAdatokView()
     {
         //kepviselők
-        $kepviselok = User::all();
+        $kepviselok = User::whereIn('role', [3,4])->get();
 
         return view('admin.loadkepviseloadatok', [
             'kepviselok' => $kepviselok
@@ -946,6 +946,12 @@ class AdminController extends Controller
                     $datum = preg_replace('/\D/', '', trim($arr[0]));
                     $posztDatum = new \DateTime($datum);
 
+                    if(mb_strlen($datum) != 8) {
+                        //continue;
+                    }
+
+                    //mi van a reakciok 0 és tipus is 0
+
                     $letezikKepviseloPoszt = KepviseloPoszt::where('users_id','=',trim($request->kepviselo))
                         ->where('ev','=',$posztDatum->format('Y'))
                         ->where('honap','=',$posztDatum->format('m'))
@@ -953,14 +959,14 @@ class AdminController extends Controller
                         ->first();
 
                     $posztok = [];
-                    if($letezikKepviseloPoszt) {
+                    if($letezikKepviseloPoszt && ((int)$arr[2]!=0 && (int)$arr[3]!=0)) {
                         $posztok = json_decode($letezikKepviseloPoszt->posztok,true);
                         $ujposzt = [
                             'id' => count($posztok)+1,
                             'reakcio' => (int)$arr[2],
                             'tipus' => $poszttipusmap[(int)$arr[3]],
                             'link' => trim($arr[4]),
-                            'HM' => $arr[5],//PostStat::getHM((int)$request->reakcio, intval($napiKepviseloPoszt->kovetok_szama)),
+                            'HM' => PostStat::getHM((int)$arr[2], intval($arr[1])),
                         ];
                         $posztok[] = $ujposzt;
 
@@ -975,15 +981,36 @@ class AdminController extends Controller
                         $letezikKepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
                         $letezikKepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
                         $letezikKepviseloPoszt->save();
-                    } else {
+                    } else if($letezikKepviseloPoszt) {
+                        //print_r($arr[3]  . 'vv'); exit;
                         $posztok[] = [
                             'id' => 1,
                             'reakcio' => (int)$arr[2],
                             'tipus' => $poszttipusmap[(int)$arr[3]],
                             'link' => trim($arr[4]),
-                            'HM' => $arr[5],//PostStat::getHM((int)$request->reakcio, intval($napiKepviseloPoszt->kovetok_szama)),
+                            'HM' => PostStat::getHM((int)$arr[2], intval($arr[1])),
                         ];
 
+                        $kepviseloPoszt = new KepviseloPoszt();
+                        $kepviseloPoszt->users_id = $request->kepviselo;
+                        $kepviseloPoszt->ev = $posztDatum->format('Y');
+                        $kepviseloPoszt->honap = $posztDatum->format('m');
+                        $kepviseloPoszt->nap = $posztDatum->format('d');
+                        $kepviseloPoszt->kovetok_szama = (int)$arr[1];
+                        $kepviseloPoszt->posztok = json_encode($posztok);
+                        $kepviseloPoszt->save();
+
+                        $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
+                        $kepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
+                        $kepviseloPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
+                        $kepviseloPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
+                        $kepviseloPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
+                        $kepviseloPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
+                        $kepviseloPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
+                        $kepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+                        $kepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
+                        $kepviseloPoszt->save();
+                    } else if((int)$arr[2]==0 && (int)$arr[3]==0) {
                         $kepviseloPoszt = new KepviseloPoszt();
                         $kepviseloPoszt->users_id = $request->kepviselo;
                         $kepviseloPoszt->ev = $posztDatum->format('Y');

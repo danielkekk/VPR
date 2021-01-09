@@ -178,7 +178,7 @@
                     data: $("form").serialize(),
                     success: function( response, textStatus, jQxhr ){
 
-                        console.log(""+JSON.stringify(response.response.inaktivNapok));
+                        console.log(""+JSON.stringify(response.response.kovetokSzama));
 
                         for (const prop in response.response.inaktivNapok) {
                             console.log(""+response.response.inaktivNapok[prop][0]);
