@@ -6,6 +6,7 @@ use App\Business\Statistics\PostStat;
 use App\Frakcio;
 use App\Imports\KepviseloAdatCSVImport;
 use App\KepviseloPoszt;
+use App\LocalMediaPoszt;
 use App\Media;
 use App\OgyKepviselok;
 use App\OgyKepviseloPoszt;
@@ -141,11 +142,14 @@ class AdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $kepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
         $kepviseloPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-        $kepviseloPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $kepviseloPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $kepviseloPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $kepviseloPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $kepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $kepviseloPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $kepviseloPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $kepviseloPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $kepviseloPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $kepviseloPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $kepviseloPoszt->stat_media_sum = $posztTipusokSum['media'];
+        $kepviseloPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $kepviseloPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $kepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
         $kepviseloPoszt->save();
 
@@ -254,11 +258,14 @@ class AdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $napiKepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
         $napiKepviseloPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-        $napiKepviseloPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $napiKepviseloPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $napiKepviseloPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $napiKepviseloPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $napiKepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $napiKepviseloPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $napiKepviseloPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $napiKepviseloPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $napiKepviseloPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $napiKepviseloPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $napiKepviseloPoszt->stat_media_sum = $posztTipusokSum['media'];
+        $napiKepviseloPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $napiKepviseloPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $napiKepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
 
         if(!$napiKepviseloPoszt->save())
@@ -295,11 +302,14 @@ class AdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($ujposztok);
         $kepviseloposzt->stat_poszt_sum = PostStat::getSumPoszt($ujposztok);
         $kepviseloposzt->stat_reakciok_sum = PostStat::getSumReakciok($ujposztok);
-        $kepviseloposzt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $kepviseloposzt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $kepviseloposzt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $kepviseloposzt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $kepviseloposzt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $kepviseloposzt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $kepviseloposzt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $kepviseloposzt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $kepviseloposzt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $kepviseloposzt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $kepviseloposzt->stat_media_sum = $posztTipusokSum['media'];
+        $kepviseloposzt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $kepviseloposzt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $kepviseloposzt->stat_atlag_hm = PostStat::getAtlagHM($ujposztok);
         $kepviseloposzt->save();
 
@@ -398,11 +408,14 @@ class AdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $ogyKepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
         $ogyKepviseloPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-        $ogyKepviseloPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $ogyKepviseloPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $ogyKepviseloPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $ogyKepviseloPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $ogyKepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $ogyKepviseloPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $ogyKepviseloPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $ogyKepviseloPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $ogyKepviseloPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $ogyKepviseloPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $ogyKepviseloPoszt->stat_media_sum = $posztTipusokSum['media'];
+        $ogyKepviseloPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $ogyKepviseloPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $ogyKepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
         $ogyKepviseloPoszt->save();
 
@@ -500,11 +513,14 @@ class AdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $napiOgyKepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
         $napiOgyKepviseloPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-        $napiOgyKepviseloPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $napiOgyKepviseloPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $napiOgyKepviseloPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $napiOgyKepviseloPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $napiOgyKepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $napiOgyKepviseloPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $napiOgyKepviseloPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $napiOgyKepviseloPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $napiOgyKepviseloPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $napiOgyKepviseloPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $napiOgyKepviseloPoszt->stat_media_sum = $posztTipusokSum['media'];
+        $napiOgyKepviseloPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $napiOgyKepviseloPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $napiOgyKepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
 
         if(!$napiOgyKepviseloPoszt->save())
@@ -541,11 +557,14 @@ class AdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($ujposztok);
         $ogykepviseloposzt->stat_poszt_sum = PostStat::getSumPoszt($ujposztok);
         $ogykepviseloposzt->stat_reakciok_sum = PostStat::getSumReakciok($ujposztok);
-        $ogykepviseloposzt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $ogykepviseloposzt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $ogykepviseloposzt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $ogykepviseloposzt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $ogykepviseloposzt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $ogykepviseloposzt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $ogykepviseloposzt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $ogykepviseloposzt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $ogykepviseloposzt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $ogykepviseloposzt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $ogykepviseloposzt->stat_media_sum = $posztTipusokSum['media'];
+        $ogykepviseloposzt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $ogykepviseloposzt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $ogykepviseloposzt->stat_atlag_hm = PostStat::getAtlagHM($ujposztok);
         $ogykepviseloposzt->save();
 
@@ -646,11 +665,14 @@ class AdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $orszMediaPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
         $orszMediaPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-        $orszMediaPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $orszMediaPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $orszMediaPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $orszMediaPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $orszMediaPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $orszMediaPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $orszMediaPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $orszMediaPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $orszMediaPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $orszMediaPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $orszMediaPoszt->stat_media_sum = $posztTipusokSum['media'];
+        $orszMediaPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $orszMediaPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $orszMediaPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
         $orszMediaPoszt->save();
 
@@ -748,11 +770,14 @@ class AdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $napiOrszMediaPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
         $napiOrszMediaPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-        $napiOrszMediaPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $napiOrszMediaPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $napiOrszMediaPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $napiOrszMediaPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $napiOrszMediaPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $napiOrszMediaPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $napiOrszMediaPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $napiOrszMediaPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $napiOrszMediaPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $napiOrszMediaPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $napiOrszMediaPoszt->stat_media_sum = $posztTipusokSum['media'];
+        $napiOrszMediaPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $napiOrszMediaPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $napiOrszMediaPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
 
         if(!$napiOrszMediaPoszt->save())
@@ -789,11 +814,14 @@ class AdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($ujposztok);
         $orszmediaposzt->stat_poszt_sum = PostStat::getSumPoszt($ujposztok);
         $orszmediaposzt->stat_reakciok_sum = PostStat::getSumReakciok($ujposztok);
-        $orszmediaposzt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $orszmediaposzt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $orszmediaposzt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $orszmediaposzt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $orszmediaposzt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $orszmediaposzt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $orszmediaposzt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $orszmediaposzt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $orszmediaposzt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $orszmediaposzt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $orszmediaposzt->stat_media_sum = $posztTipusokSum['media'];
+        $orszmediaposzt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $orszmediaposzt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $orszmediaposzt->stat_atlag_hm = PostStat::getAtlagHM($ujposztok);
         $orszmediaposzt->save();
 
@@ -861,22 +889,37 @@ class AdminController extends Controller
 
     public function loadKepviseloAdatokView()
     {
-        //kepviselők
         $kepviselok = User::whereIn('role', [3,4])->get();
+        $ogykepviselok = OgyKepviselok::all();
+        $helyimediak = Media::where('tipus', 2)->get();
+        $orszagosmediak = Media::where('tipus', 1)->get();
+        $tipusok = [
+            1 => 'Képviselő poszt',
+            2 => 'Ogy. Képviselő poszt',
+            3 => 'Helyi média poszt',
+            4 => 'Országos média poszt',
+        ];
 
         return view('admin.loadkepviseloadatok', [
-            'kepviselok' => $kepviselok
+            'kepviselok' => $kepviselok,
+            'ogykepviselok' => $ogykepviselok,
+            'helyimediak' => $helyimediak,
+            'orszagosmediak' => $orszagosmediak,
+            'tipusok' => $tipusok,
         ]);
     }
 
     public function loadKepviseloAdatok(Request $request)
     {
         $poszttipusmap = [
-            1 => 'polgarmesteri',
-            2 => 'alpolgarmesteri',
-            3 => 'altalanos',
-            4 => 'szemelyes',
-            5 => 'ogykepviselo',
+            1 => 'sajat',
+            2 => 'szemelyes',
+            3 => 'polgarmesteri',
+            4 => 'alpolgarmesteri',
+            5 => 'csoportoldal',
+            6 => 'media',
+            7 => 'kepviselotars',
+            8 => 'egyeb',
         ];
 
         $messages = [
@@ -888,6 +931,10 @@ class AdminController extends Controller
 
         $validator = Validator::make($request->all(), [
             'kepviselo' => 'required|integer',
+            'ogykepviselo' => 'required|integer',
+            'helyimedia' => 'required|integer',
+            'orszmedia' => 'required|integer',
+            'poszttype' => 'required|integer',
             'file' => 'max:2048',
             //'file' => 'required|mimetypes:csv,txt,text/csv,text/plain,application/csv,text/comma-separated-values,text/anytext,application/octet-stream,application/txt|max:2048',
         ], $messages);
@@ -897,7 +944,6 @@ class AdminController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-
 
         if (!$request->hasFile('filecsv')) {
             echo 'Hiba';
@@ -950,17 +996,51 @@ class AdminController extends Controller
                         //continue;
                     }
 
-                    //mi van a reakciok 0 és tipus is 0
-
-                    $letezikKepviseloPoszt = KepviseloPoszt::where('users_id','=',trim($request->kepviselo))
-                        ->where('ev','=',$posztDatum->format('Y'))
-                        ->where('honap','=',$posztDatum->format('m'))
-                        ->where('nap','=',$posztDatum->format('d'))
-                        ->first();
+                    /*
+                     * 1 => 'Képviselő poszt',
+                        2 => 'Ogy. Képviselő poszt',
+                        3 => 'Helyi média poszt',
+                        4 => 'Országos média poszt',
+                     */
+                    $posztModel = null;
+                    $ujPoszt = null;
+                    if((int)$request->poszttype == 1) {
+                        $posztModel = KepviseloPoszt::where('users_id','=',trim($request->kepviselo))
+                            ->where('ev','=',$posztDatum->format('Y'))
+                            ->where('honap','=',$posztDatum->format('m'))
+                            ->where('nap','=',$posztDatum->format('d'))
+                            ->first();
+                        $ujPoszt = new KepviseloPoszt();
+                        $ujPoszt->users_id = trim($request->kepviselo);
+                    } else if((int)$request->poszttype == 2) {
+                        $posztModel = OgyKepviseloPoszt::where('ogykepviselo_id','=',trim($request->ogykepviselo))
+                            ->where('ev','=',$posztDatum->format('Y'))
+                            ->where('honap','=',$posztDatum->format('m'))
+                            ->where('nap','=',$posztDatum->format('d'))
+                            ->first();
+                        $ujPoszt = new OgyKepviseloPoszt();
+                        $ujPoszt->ogykepviselo_id = trim($request->ogykepviselo);
+                    } else if((int)$request->poszttype == 3) {
+                        $posztModel = LocalMediaPoszt::where('media_id','=',trim($request->helyimedia))
+                            ->where('ev','=',$posztDatum->format('Y'))
+                            ->where('honap','=',$posztDatum->format('m'))
+                            ->where('nap','=',$posztDatum->format('d'))
+                            ->first();
+                        $ujPoszt = new LocalMediaPoszt();
+                        $ujPoszt->media_id = trim($request->helyimedia);
+                    } else if((int)$request->poszttype == 4) {
+                        $posztModel = OrszMediaPoszt::where('media_id','=',trim($request->orszmedia))
+                            ->where('ev','=',$posztDatum->format('Y'))
+                            ->where('honap','=',$posztDatum->format('m'))
+                            ->where('nap','=',$posztDatum->format('d'))
+                            ->first();
+                        $ujPoszt = new OrszMediaPoszt();
+                        $ujPoszt->media_id = trim($request->orszmedia);
+                    }
 
                     $posztok = [];
-                    if($letezikKepviseloPoszt && ((int)$arr[2]!=0 && (int)$arr[3]!=0)) {
-                        $posztok = json_decode($letezikKepviseloPoszt->posztok,true);
+                    if($posztModel && ((int)$arr[2]!=0 && (int)$arr[3]!=0)) {
+                        $posztok = json_decode($posztModel->posztok,true);
                         $ujposzt = [
                             'id' => count($posztok)+1,
                             'reakcio' => (int)$arr[2],
@@ -970,19 +1050,21 @@ class AdminController extends Controller
                         ];
                         $posztok[] = $ujposzt;
 
-                        $letezikKepviseloPoszt->posztok = json_encode($posztok);
+                        $posztModel->posztok = json_encode($posztok);
                         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
-                        $letezikKepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
-                        $letezikKepviseloPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-                        $letezikKepviseloPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-                        $letezikKepviseloPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-                        $letezikKepviseloPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-                        $letezikKepviseloPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-                        $letezikKepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
-                        $letezikKepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
-                        $letezikKepviseloPoszt->save();
-                    } else if($letezikKepviseloPoszt) {
-                        //print_r($arr[3]  . 'vv'); exit;
+                        $posztModel->stat_poszt_sum = PostStat::getSumPoszt($posztok);
+                        $posztModel->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
+                        $posztModel->stat_sajat_sum = $posztTipusokSum['sajat'];
+                        $posztModel->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+                        $posztModel->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+                        $posztModel->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+                        $posztModel->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+                        $posztModel->stat_media_sum = $posztTipusokSum['media'];
+                        $posztModel->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+                        $posztModel->stat_egyeb_sum = $posztTipusokSum['egyeb'];
+                        $posztModel->stat_atlag_hm = PostStat::getAtlagHM($posztok);
+                        $posztModel->save();
+                    } else if(!$posztModel) {
                         $posztok[] = [
                             'id' => 1,
                             'reakcio' => (int)$arr[2],
@@ -991,45 +1073,47 @@ class AdminController extends Controller
                             'HM' => PostStat::getHM((int)$arr[2], intval($arr[1])),
                         ];
 
-                        $kepviseloPoszt = new KepviseloPoszt();
-                        $kepviseloPoszt->users_id = $request->kepviselo;
-                        $kepviseloPoszt->ev = $posztDatum->format('Y');
-                        $kepviseloPoszt->honap = $posztDatum->format('m');
-                        $kepviseloPoszt->nap = $posztDatum->format('d');
-                        $kepviseloPoszt->kovetok_szama = (int)$arr[1];
-                        $kepviseloPoszt->posztok = json_encode($posztok);
-                        $kepviseloPoszt->save();
+                        $ujPoszt->ev = $posztDatum->format('Y');
+                        $ujPoszt->honap = $posztDatum->format('m');
+                        $ujPoszt->nap = $posztDatum->format('d');
+                        $ujPoszt->kovetok_szama = (int)$arr[1];
+                        $ujPoszt->posztok = json_encode($posztok);
+                        $ujPoszt->save();
 
                         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
-                        $kepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
-                        $kepviseloPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-                        $kepviseloPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-                        $kepviseloPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-                        $kepviseloPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-                        $kepviseloPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-                        $kepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
-                        $kepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
-                        $kepviseloPoszt->save();
+                        $ujPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
+                        $ujPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
+                        $ujPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+                        $ujPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+                        $ujPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+                        $ujPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+                        $ujPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+                        $ujPoszt->stat_media_sum = $posztTipusokSum['media'];
+                        $ujPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+                        $ujPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
+                        $ujPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
+                        $ujPoszt->save();
                     } else if((int)$arr[2]==0 && (int)$arr[3]==0) {
-                        $kepviseloPoszt = new KepviseloPoszt();
-                        $kepviseloPoszt->users_id = $request->kepviselo;
-                        $kepviseloPoszt->ev = $posztDatum->format('Y');
-                        $kepviseloPoszt->honap = $posztDatum->format('m');
-                        $kepviseloPoszt->nap = $posztDatum->format('d');
-                        $kepviseloPoszt->kovetok_szama = (int)$arr[1];
-                        $kepviseloPoszt->posztok = json_encode($posztok);
-                        $kepviseloPoszt->save();
+                        $ujPoszt->ev = $posztDatum->format('Y');
+                        $ujPoszt->honap = $posztDatum->format('m');
+                        $ujPoszt->nap = $posztDatum->format('d');
+                        $ujPoszt->kovetok_szama = (int)$arr[1];
+                        $ujPoszt->posztok = json_encode($posztok);
+                        $ujPoszt->save();
 
                         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
-                        $kepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
-                        $kepviseloPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-                        $kepviseloPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-                        $kepviseloPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-                        $kepviseloPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-                        $kepviseloPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-                        $kepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
-                        $kepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
-                        $kepviseloPoszt->save();
+                        $ujPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
+                        $ujPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
+                        $ujPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+                        $ujPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+                        $ujPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+                        $ujPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+                        $ujPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+                        $ujPoszt->stat_media_sum = $posztTipusokSum['media'];
+                        $ujPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+                        $ujPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
+                        $ujPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
+                        $ujPoszt->save();
                     }
 
                     //echo json_encode($arr) . ", ";

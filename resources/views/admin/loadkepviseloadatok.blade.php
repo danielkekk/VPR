@@ -79,6 +79,34 @@
                 <form id="loadkepviseloadatok-form" action="{{ url('/loadkepviseloadatok') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
+                    <label for="poszttype">Típus</label>
+                    <select name="poszttype">
+                        <?php foreach($tipusok as $key => $value) { ?>
+                        <option value="<?php echo $key;?>"><?php echo $value;?></option>
+                        <?php } ?>
+                    </select><br><br>
+
+                    <label for="orszmedia">Országos média</label>
+                    <select name="orszmedia">
+                        <?php foreach($orszagosmediak as $media) { ?>
+                        <option value="<?php echo $media->id;?>"><?php echo $media->name;?></option>
+                        <?php } ?>
+                    </select><br>
+
+                    <label for="helyimedia">Helyi média</label>
+                    <select name="helyimedia">
+                        <?php foreach($helyimediak as $media) { ?>
+                        <option value="<?php echo $media->id;?>"><?php echo $media->name;?></option>
+                        <?php } ?>
+                    </select><br>
+
+                    <label for="ogykepviselo">Ogy. Képviselő</label>
+                    <select name="ogykepviselo">
+                        <?php foreach($ogykepviselok as $kepviselo) { ?>
+                        <option value="<?php echo $kepviselo->id;?>"><?php echo $kepviselo->name;?></option>
+                        <?php } ?>
+                    </select><br>
+
                     <label for="kepviselo">Képviselő</label>
                     <select name="kepviselo">
                         <?php foreach($kepviselok as $kepviselo) { ?>

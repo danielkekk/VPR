@@ -68,39 +68,54 @@ class PostStat
     {
         if(empty($posztok)) {
             return [
-                'altalanos' => 0,
+                'sajat' => 0,
+                'szemelyes' => 0,
                 'polgarmesteri' => 0,
                 'alpolgarmesteri' => 0,
-                'szemelyes' => 0,
-                'ogykepviselo' => 0,
+                'csoportoldal' => 0,
+                'media' => 0,
+                'kepviselotars' => 0,
+                'egyeb' => 0,
             ];
         }
 
-        $sumAltalanos = 0;
+        $sumSajat = 0;
+        $sumSzemelyes = 0;
         $sumPolgarmesteri = 0;
         $sumAlpolgarmesteri = 0;
-        $sumSzemelyes = 0;
-        $sumOgykepviselo = 0;
+        $sumCsoportoldal = 0;
+        $sumMedia = 0;
+        $sumKepviselotars = 0;
+        $sumEgyeb = 0;
         foreach($posztok as $poszt) {
-            if($poszt['tipus'] === 'altalanos') {
-                $sumAltalanos++;
-            } else if($poszt['tipus'] === 'polgarmesteri') {
-                $sumPolgarmesteri++;
-            } else if($poszt['tipus'] === 'alpolgarmesteri') {
-                $sumAlpolgarmesteri++;
+            if($poszt['tipus'] === 'sajat') {
+                $sumSajat++;
             } else if($poszt['tipus'] === 'szemelyes') {
                 $sumSzemelyes++;
-            } else if($poszt['tipus'] === 'ogykepviselo') {
-                $sumOgykepviselo++;
+            } else if($poszt['tipus'] === 'alpolgarmesteri') {
+                $sumAlpolgarmesteri++;
+            } else if($poszt['tipus'] === 'polgarmesteri') {
+                $sumPolgarmesteri++;
+            } else if($poszt['tipus'] === 'csoportoldal') {
+                $sumCsoportoldal++;
+            } else if($poszt['tipus'] === 'media') {
+                $sumMedia++;
+            } else if($poszt['tipus'] === 'kepviselotars') {
+                $sumKepviselotars++;
+            } else if($poszt['tipus'] === 'egyeb') {
+                $sumEgyeb++;
             }
         }
 
         return [
-            'altalanos' => $sumAltalanos,
-            'polgarmesteri' => $sumPolgarmesteri,
-            'alpolgarmesteri' => $sumAlpolgarmesteri,
+            'sajat' => $sumSajat,
             'szemelyes' => $sumSzemelyes,
-            'ogykepviselo' => $sumOgykepviselo,
+            'alpolgarmesteri' => $sumAlpolgarmesteri,
+            'polgarmesteri' => $sumPolgarmesteri,
+            'csoportoldal' => $sumCsoportoldal,
+            'media' => $sumMedia,
+            'kepviselotars' => $sumKepviselotars,
+            'egyeb' => $sumEgyeb,
         ];
     }
 }

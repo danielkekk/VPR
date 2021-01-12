@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             FrakciokSeeder::class,
             PosztTipusokSeeder::class,
-            OgyKepviselokSeeder::class
+            OgyKepviselokSeeder::class,
+            MediaSeeder::class
         ]);
     }
 }

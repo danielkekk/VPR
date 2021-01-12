@@ -76,7 +76,7 @@
                     }
                 ?>
 
-                <form id="ujorszmedia-form" action="{{ url('/fra-createorszmediaposzt') }}" method="POST">
+                <form id="ujorszmedia-form" action="{{ url('/createorszmediaposzt') }}" method="POST">
                     @csrf
 
                     <label for="orszmedia">Országos média</label>

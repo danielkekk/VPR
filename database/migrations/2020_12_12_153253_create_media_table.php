@@ -16,6 +16,7 @@ class CreateMediaTable extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->nullable();
+            $table->bigInteger('frakcio_id')->nullable();
             $table->unsignedSmallInteger('tipus');
             $table->integer('status_id')->nullable();
             $table->timestamps();

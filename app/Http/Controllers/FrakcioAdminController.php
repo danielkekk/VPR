@@ -139,11 +139,14 @@ class FrakcioAdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $kepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
         $kepviseloPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-        $kepviseloPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $kepviseloPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $kepviseloPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $kepviseloPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $kepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $kepviseloPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $kepviseloPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $kepviseloPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $kepviseloPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $kepviseloPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $kepviseloPoszt->stat_media_sum = $posztTipusokSum['media'];
+        $kepviseloPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $kepviseloPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $kepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
         $kepviseloPoszt->save();
 
@@ -281,11 +284,14 @@ class FrakcioAdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $napiKepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
         $napiKepviseloPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-        $napiKepviseloPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $napiKepviseloPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $napiKepviseloPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $napiKepviseloPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $napiKepviseloPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $napiKepviseloPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $napiKepviseloPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $napiKepviseloPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $napiKepviseloPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $napiKepviseloPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $napiKepviseloPoszt->stat_media_sum = $posztTipusokSum['media'];
+        $napiKepviseloPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $napiKepviseloPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $napiKepviseloPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
 
         if(!$napiKepviseloPoszt->save())
@@ -330,11 +336,14 @@ class FrakcioAdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($ujposztok);
         $kepviseloposzt->stat_poszt_sum = PostStat::getSumPoszt($ujposztok);
         $kepviseloposzt->stat_reakciok_sum = PostStat::getSumReakciok($ujposztok);
-        $kepviseloposzt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $kepviseloposzt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $kepviseloposzt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $kepviseloposzt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $kepviseloposzt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $kepviseloposzt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $kepviseloposzt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $kepviseloposzt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $kepviseloposzt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $kepviseloposzt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $kepviseloposzt->stat_media_sum = $posztTipusokSum['media'];
+        $kepviseloposzt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $kepviseloposzt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $kepviseloposzt->stat_atlag_hm = PostStat::getAtlagHM($ujposztok);
         $kepviseloposzt->save();
 
@@ -437,11 +446,14 @@ class FrakcioAdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $localMediaPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
         $localMediaPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-        $localMediaPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $localMediaPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $localMediaPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $localMediaPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $localMediaPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $localMediaPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $localMediaPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $localMediaPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $localMediaPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $localMediaPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $localMediaPoszt->stat_media_sum = $posztTipusokSum['media'];
+        $localMediaPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $localMediaPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $localMediaPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
         $localMediaPoszt->save();
 
@@ -539,11 +551,14 @@ class FrakcioAdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $napiLocalMediaPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
         $napiLocalMediaPoszt->stat_reakciok_sum = PostStat::getSumReakciok($posztok);
-        $napiLocalMediaPoszt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $napiLocalMediaPoszt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $napiLocalMediaPoszt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $napiLocalMediaPoszt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $napiLocalMediaPoszt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $napiLocalMediaPoszt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $napiLocalMediaPoszt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $napiLocalMediaPoszt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $napiLocalMediaPoszt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $napiLocalMediaPoszt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $napiLocalMediaPoszt->stat_media_sum = $posztTipusokSum['media'];
+        $napiLocalMediaPoszt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $napiLocalMediaPoszt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $napiLocalMediaPoszt->stat_atlag_hm = PostStat::getAtlagHM($posztok);
 
         if(!$napiLocalMediaPoszt->save())
@@ -580,11 +595,14 @@ class FrakcioAdminController extends Controller
         $posztTipusokSum = PostStat::getSumPosztTipusok($ujposztok);
         $localmediaposzt->stat_poszt_sum = PostStat::getSumPoszt($ujposztok);
         $localmediaposzt->stat_reakciok_sum = PostStat::getSumReakciok($ujposztok);
-        $localmediaposzt->stat_altalanos_sum = $posztTipusokSum['altalanos'];
-        $localmediaposzt->stat_alpolg_sum = $posztTipusokSum['alpolgarmesteri'];
-        $localmediaposzt->stat_polg_sum = $posztTipusokSum['polgarmesteri'];
-        $localmediaposzt->stat_privat_sum = $posztTipusokSum['szemelyes'];
-        $localmediaposzt->stat_ogykepviselo_sum = $posztTipusokSum['ogykepviselo'];
+        $localmediaposzt->stat_sajat_sum = $posztTipusokSum['sajat'];
+        $localmediaposzt->stat_szemelyes_sum = $posztTipusokSum['szemelyes'];
+        $localmediaposzt->stat_polgarmesteri_sum = $posztTipusokSum['polgarmesteri'];
+        $localmediaposzt->stat_alpolgarmesteri_sum = $posztTipusokSum['alpolgarmesteri'];
+        $localmediaposzt->stat_csoportoldal_sum = $posztTipusokSum['csoportoldal'];
+        $localmediaposzt->stat_media_sum = $posztTipusokSum['media'];
+        $localmediaposzt->stat_kepviselotars_sum = $posztTipusokSum['kepviselotars'];
+        $localmediaposzt->stat_egyeb_sum = $posztTipusokSum['egyeb'];
         $localmediaposzt->stat_atlag_hm = PostStat::getAtlagHM($ujposztok);
         $localmediaposzt->save();
 
