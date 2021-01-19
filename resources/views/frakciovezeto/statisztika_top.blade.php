@@ -46,7 +46,7 @@
 
             .content {
                 position: relative;
-                margin: 0px 5px 15px 20px;
+                margin: 300px 5px 15px 20px;
                 text-align: left;
             }
 
@@ -134,7 +134,7 @@
                             let cell1 = rowa.insertCell(0);
                             cell2.innerHTML = "" + response.response_kepviselo_poszt[ii].reakcio;
                             cell3.innerHTML = "" + response.response_kepviselo_poszt[ii].HM;
-                            cell4.innerHTML = "" + response.response_kepviselo_poszt[ii].link;
+                            cell4.innerHTML = "<a href=\""+ response.response_kepviselo_poszt[ii].link +"\" target=\"_blank\">" + response.response_kepviselo_poszt[ii].link + "</a>";
                             cell1.innerHTML = "" + (ii+1);
                         }
 
@@ -164,7 +164,7 @@
                             cell1 = rowa.insertCell(0);
                             cell2.innerHTML = "" + response.response_ogykepviselo_poszt[ii].reakcio;
                             cell3.innerHTML = "" + response.response_ogykepviselo_poszt[ii].HM;
-                            cell4.innerHTML = "" + response.response_ogykepviselo_poszt[ii].link;
+                            cell4.innerHTML = "<a href=\""+ response.response_kepviselo_poszt[ii].link +"\" target=\"_blank\">" + response.response_kepviselo_poszt[ii].link + "</a>";
                             cell1.innerHTML = "" + (ii+1);
                         }
 
@@ -194,7 +194,7 @@
                             cell1 = rowa.insertCell(0);
                             cell2.innerHTML = "" + response.response_helyimedia_poszt[ii].reakcio;
                             cell3.innerHTML = "" + response.response_helyimedia_poszt[ii].HM;
-                            cell4.innerHTML = "" + response.response_helyimedia_poszt[ii].link;
+                            cell4.innerHTML = "<a href=\""+ response.response_kepviselo_poszt[ii].link +"\" target=\"_blank\">" + response.response_kepviselo_poszt[ii].link + "</a>";
                             cell1.innerHTML = "" + (ii+1);
                         }
 
@@ -224,7 +224,7 @@
                             cell1 = rowa.insertCell(0);
                             cell2.innerHTML = "" + response.response_orszmedia_poszt[ii].reakcio;
                             cell3.innerHTML = "" + response.response_orszmedia_poszt[ii].HM;
-                            cell4.innerHTML = "" + response.response_orszmedia_poszt[ii].link;
+                            cell4.innerHTML = "<a href=\""+ response.response_kepviselo_poszt[ii].link +"\" target=\"_blank\">" + response.response_kepviselo_poszt[ii].link + "</a>";
                             cell1.innerHTML = "" + (ii+1);
                         }
 
