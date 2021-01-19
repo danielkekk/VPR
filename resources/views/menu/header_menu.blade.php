@@ -27,6 +27,7 @@
                 <a href="{{ url('/statisztika-localmedia') }}">HELYI MÉDIA</a>
                 <a href="{{ url('/statisztika') }}">KÉPVISELŐK</a>
                 <a href="{{ url('/statisztika-havi') }}">HAVI KIMUTATÁS</a>
+                <a href="{{ url('/statisztika-top') }}">TOP</a>
                 <a href="{{ url('/statisztika-frakciovezeto') }}">SAJÁT</a>
             <?php } else if(Auth::user()->role == 4) { ?>
                 <a href="{{ url('/a') }}">OGY. KÉPVISELŐK</a>

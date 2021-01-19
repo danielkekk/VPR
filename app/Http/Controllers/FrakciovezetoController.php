@@ -131,4 +131,10 @@ class FrakciovezetoController extends Controller
             'frakciovezetoId' => $authenticatedUser->id,
         ]);
     }
+
+    public function getTopStatisztika()
+    {
+        return view('frakciovezeto.statisztika_top', [
+        ]);
+    }
 }

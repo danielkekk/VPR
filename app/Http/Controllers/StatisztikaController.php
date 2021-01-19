@@ -79,8 +79,9 @@ class StatisztikaController extends Controller
 
         //összes poszt, lekérdezzük a hónapban a kepviselohoz tartozo sorokat, összeszámoljuk
         $haviPosztok = DB::table('kepviselo_poszt')
-            ->select('nap','stat_poszt_sum','stat_reakciok_sum','stat_altalanos_sum','stat_alpolg_sum','stat_polg_sum'
-                ,'stat_privat_sum','stat_ogykepviselo_sum','stat_atlag_hm')
+            ->select('nap','stat_poszt_sum','stat_reakciok_sum','stat_sajat_sum','stat_szemelyes_sum',
+                'stat_polgarmesteri_sum','stat_alpolgarmesteri_sum','stat_csoportoldal_sum','stat_media_sum',
+                'stat_kepviselotars_sum','stat_egyeb_sum','stat_atlag_hm')
             ->where([
                 ['users_id','=',intval($request->kepviselo)],
                 ['ev','=',$request->ev],
@@ -92,11 +93,14 @@ class StatisztikaController extends Controller
 
         $sum_poszt = 0;
         $sum_reakciok = 0;
-        $sum_altalanos = 0;
+        $sum_sajat = 0;
+        $sum_szemelyes = 0;
         $sum_alpolg = 0;
         $sum_polg = 0;
-        $sum_privat = 0;
-        $sum_ogykepviselo = 0;
+        $sum_csoportoldal = 0;
+        $sum_kepviselotars = 0;
+        $sum_media = 0;
+        $sum_egyeb = 0;
         $sum_atlag_hm = 0;
         $inaktiv_napok = $napokSzama - count($haviPosztok);
         $atlag_napi_poszt = 0;
@@ -104,11 +108,14 @@ class StatisztikaController extends Controller
         foreach($haviPosztok as $post) {
             $sum_poszt += (int)$post->stat_poszt_sum;
             $sum_reakciok += (int)$post->stat_reakciok_sum;
-            $sum_altalanos += (int)$post->stat_altalanos_sum;
-            $sum_alpolg += (int)$post->stat_alpolg_sum;
-            $sum_polg += (int)$post->stat_polg_sum;
-            $sum_privat += (int)$post->stat_privat_sum;
-            $sum_ogykepviselo += (int)$post->stat_ogykepviselo_sum;
+            $sum_sajat += (int)$post->stat_sajat_sum;
+            $sum_szemelyes += (int)$post->stat_szemelyes_sum;
+            $sum_alpolg += (int)$post->stat_alpolgarmesteri_sum;
+            $sum_polg += (int)$post->stat_polgarmesteri_sum;
+            $sum_csoportoldal += (int)$post->stat_csoportoldal_sum;
+            $sum_media += (int)$post->stat_media_sum;
+            $sum_kepviselotars += (int)$post->stat_kepviselotars_sum;
+            $sum_egyeb += (int)$post->stat_egyeb_sum;
             $sum_atlag_hm += round($post->stat_atlag_hm, 2);
         }
         $atlag_napi_poszt = round(($sum_poszt / $napokSzama), 2);
@@ -116,11 +123,14 @@ class StatisztikaController extends Controller
         $kepviseloDatas = [
             'sum_poszt' => $sum_poszt,
             'sum_reakciok' => $sum_reakciok,
-            'sum_altalanos' => $sum_altalanos,
+            'sum_sajat' => $sum_sajat,
+            'sum_szemelyes' => $sum_szemelyes,
             'sum_alpolg' => $sum_alpolg,
             'sum_polg' => $sum_polg,
-            'sum_privat' => $sum_privat,
-            'sum_ogykepviselo' => $sum_ogykepviselo,
+            'sum_csoportoldal' => $sum_csoportoldal,
+            'sum_media' => $sum_media,
+            'sum_kepviselotars' => $sum_kepviselotars,
+            'sum_egyeb' => $sum_egyeb,
             'sum_atlag_hm' => $sum_atlag_hm,
             'atlag_napi_poszt' => $atlag_napi_poszt,
             'inaktiv_napok' => $inaktiv_napok
@@ -337,5 +347,58 @@ class StatisztikaController extends Controller
             ->get();
 
         return response()->json($result);
+    }
+
+    public function topKimutatas(Request $request)
+    {
+        $today = new \DateTime(date('Ymd'));
+        $ev = '2020';//$today->format('Y');
+        $honap = '12';//$today->format('m');
+
+        $response_kepviselo_poszt = $this->getTopArray('kepviselo_poszt', $ev, $honap);
+        $response_ogykepviselo_poszt = $this->getTopArray('ogykepviselo_poszt', $ev, $honap);
+        $response_helyimedia_poszt = $this->getTopArray('localmedia_poszt', $ev, $honap);
+        $response_orszmedia_poszt = $this->getTopArray('orszmedia_poszt', $ev, $honap);
+
+        return response()->json([
+            'response_kepviselo_poszt' => array_slice($response_kepviselo_poszt, 0, 3),
+            'response_ogykepviselo_poszt' => array_slice($response_ogykepviselo_poszt, 0, 3),
+            'response_helyimedia_poszt' => array_slice($response_helyimedia_poszt, 0, 3),
+            'response_orszmedia_poszt' => array_slice($response_orszmedia_poszt, 0, 3),
+        ], 200);
+    }
+
+    private function getTopArray($table='kepviselo_poszt', $ev, $honap) {
+        $posztok = [];
+        $hms = [];
+
+        $result = DB::table($table)
+            ->where([
+                ['ev','=',$ev],
+                ['honap','=',$honap],
+            ])
+            ->get();
+
+        foreach($result as $row) {
+            $rowPosztok = json_decode($row->posztok, true);
+            foreach($rowPosztok as $rowPoszt) {
+                $posztok[] = [
+                    'datum' => trim($row->ev) . trim($row->honap) . trim($row->nap),
+                    'reakcio' => $rowPoszt['reakcio'],
+                    'tipus' => $rowPoszt['tipus'],
+                    'link' => $rowPoszt['link'],
+                    'HM' => (float)$rowPoszt['HM'],
+                ];
+            }
+        }
+
+        //rendezés hm szerint
+        foreach ($posztok as $key => $row)
+        {
+            $hms[$key] = $row['HM'];
+        }
+        array_multisort($hms, SORT_DESC, $posztok);
+
+        return $posztok;
     }
 }

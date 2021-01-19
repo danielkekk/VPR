@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" line="189" mnemonic="7" />
+    <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" line="199" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ef2035b-d5aa-49b1-b90d-e82a4cceea0e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/database/seeds/MediaSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika_top.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Business/Statistics/PostStat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Business/Statistics/PostStat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrakcioAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrakcioAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_23_202747_create_kepviselok_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_23_202747_create_kepviselok_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_11_155036_create_ogykepviselo_poszt_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_11_155036_create_ogykepviselo_poszt_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_12_153253_create_media_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_153253_create_media_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_12_153932_create_localmedia_poszt_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_153932_create_localmedia_poszt_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_12_153946_create_orszmedia_poszt_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_153946_create_orszmedia_poszt_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/loadkepviseloadatok.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/loadkepviseloadatok.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/ujorszmediaposzt.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ujorszmediaposzt.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika_havi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika_havi.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menu/header_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menu/header_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,17 +29,47 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="56" column="34" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="34" />
+            <state relative-caret-position="459">
+              <caret line="100" column="14" selection-start-line="100" selection-start-column="14" selection-end-line="100" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
+      <file leaf-file-name="FrakciovezetoController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="1066" column="37" selection-start-line="1066" selection-start-column="37" selection-end-line="1066" selection-end-column="37" />
+            <state relative-caret-position="453">
+              <caret line="134" column="39" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="statisztika.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="173" column="38" lean-forward="true" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="statisztika_top.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/statisztika_top.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="119" column="87" selection-start-line="119" selection-start-column="87" selection-end-line="119" selection-end-column="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StatisztikaController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="360" column="36" selection-start-line="360" selection-start-column="36" selection-end-line="360" selection-end-column="36" />
+              <folding>
+                <element signature="e#40#53#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,70 +77,25 @@
       <file leaf-file-name="FrakcioAdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrakcioAdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
+            <state relative-caret-position="9775">
+              <caret line="587" column="24" selection-start-line="587" selection-start-column="24" selection-end-line="587" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostStat.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Business/Statistics/PostStat.php">
+      <file leaf-file-name="header_menu.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/menu/header_menu.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+            <state relative-caret-position="493">
+              <caret line="29" column="49" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="49" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PosztTipusokSeeder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/PosztTipusokSeeder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="59" column="28" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loadkepviseloadatok.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/loadkepviseloadatok.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="81" column="41" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="41" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KepviseloPoszt.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/KepviseloPoszt.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OgyKepviseloPoszt.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/OgyKepviseloPoszt.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="OrszMediaPoszt.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/OrszMediaPoszt.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>kepv</find>
-      <find>orsz</find>
-      <find>fra-ujlocalmediaposzt</find>
-      <find>kepvis</find>
-      <find>Media</find>
       <find>'kepvis</find>
       <find>letezik</find>
       <find>stat_poszt_sum</find>
@@ -141,6 +121,11 @@
       <find>ujOrszMediaPoszt</find>
       <find>ujorszmediaposzt</find>
       <find>loadada</find>
+      <find>altal</find>
+      <find>stat_al</find>
+      <find>sum_al</find>
+      <find>datum</find>
+      <find>save(</find>
     </findStrings>
     <replaceStrings>
       <replace>LocalMedia</replace>
@@ -154,8 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/frakcioadmin/fra-ujkepviselo.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/ujkepviseloposzt.blade.php" />
         <option value="$PROJECT_DIR$/database/seeds/FrakciokSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/UserSeeder.php" />
         <option value="$PROJECT_DIR$/app/OgyKepviseloPoszt.php" />
@@ -186,12 +169,6 @@
         <option value="$PROJECT_DIR$/app/Imports/KepviseloAdatCSVImport.php" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.json" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/menu/header_menu.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php" />
-        <option value="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika_havi.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" />
         <option value="$PROJECT_DIR$/database/seeds/PosztTipusokSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_12_153253_create_media_table.php" />
@@ -205,6 +182,14 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/FrakcioAdminController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/ujorszmediaposzt.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/resources/views/menu/header_menu.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php" />
+        <option value="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika_havi.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.json" />
+        <option value="$PROJECT_DIR$/resources/views/frakciovezeto/statisztika_top.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php" />
       </list>
     </option>
   </component>
@@ -349,6 +334,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -513,7 +499,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -524,15 +509,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danik\Desktop\PROJECTS\PHP\verespr\app\Http\Controllers\Auth" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\danik\Desktop\PROJECTS\PHP\verespr\resources\views\frakciovezeto" />
       <recent name="C:\Users\danik\Desktop\PROJECTS\PHP\verespr\resources\views\admin" />
       <recent name="C:\Users\danik\Desktop\PROJECTS\PHP\verespr\resources\views\frakcioadmin" />
       <recent name="C:\Users\danik\Desktop\PROJECTS\PHP\verespr\resources\views" />
       <recent name="C:\Users\danik\Desktop\PROJECTS\PHP\verespr\resources\views\auth\passwords" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\danik\Desktop\PROJECTS\PHP\verespr\app\Http\Controllers\Auth" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -603,7 +588,10 @@
       <workItem from="1610118363363" duration="4411000" />
       <workItem from="1610192756103" duration="3094000" />
       <workItem from="1610382580266" duration="5156000" />
-      <workItem from="1610467184966" duration="6292000" />
+      <workItem from="1610467184966" duration="6322000" />
+      <workItem from="1610731355493" duration="4959000" />
+      <workItem from="1610787667187" duration="5261000" />
+      <workItem from="1611068918287" duration="4359000" />
     </task>
     <task id="LOCAL-00001" summary="postra átírva">
       <created>1609010446750</created>
@@ -626,11 +614,18 @@
       <option name="project" value="LOCAL" />
       <updated>1610198289637</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="poszt típusok">
+      <created>1610474106270</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610474106270</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229161000" />
+    <option name="totallyTimeSpent" value="243770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -643,7 +638,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32909605" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32080537" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33489934" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -670,11 +665,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="poszt típusok" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/storage/app/public/filename.csv" />
-    <entry file="file://$PROJECT_DIR$/storage/app/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/app/public/.gitignore" />
     <entry file="file://$PROJECT_DIR$/storage/app/uploadedcsvs/kepviseloadat.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -758,48 +748,10 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.blade_1.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/menu/header_menu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="623">
           <caret line="58" column="10" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/statisztika_havi.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3349">
-          <caret line="197" selection-start-line="197" selection-end-line="197" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3944">
-          <caret line="236" column="91" selection-start-line="236" selection-start-column="88" selection-end-line="236" selection-end-column="91" />
-          <folding>
-            <element signature="e#40#53#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -897,7 +849,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/PosztTipusokSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
+        <state relative-caret-position="986">
           <caret line="59" column="28" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="28" />
         </state>
       </provider>
@@ -912,34 +864,17 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrakcioAdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Business/Statistics/PostStat.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
+        <state relative-caret-position="1122">
           <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/loadkepviseloadatok.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="1377">
           <caret line="81" column="41" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="56" column="34" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -947,16 +882,82 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="78" column="81" selection-start-line="78" selection-start-column="81" selection-end-line="78" selection-end-column="81" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/menu/header_menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="49" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccessDeniedController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="1066" column="37" selection-start-line="1066" selection-start-column="37" selection-end-line="1066" selection-end-column="37" />
+        <state relative-caret-position="239">
+          <caret line="95" column="62" selection-start-line="95" selection-start-column="57" selection-end-line="95" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrakcioAdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9775">
+          <caret line="587" column="24" selection-start-line="587" selection-start-column="24" selection-end-line="587" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="100" column="14" selection-start-line="100" selection-start-column="14" selection-end-line="100" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/statisztika_havi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6015">
+          <caret line="382" column="19" lean-forward="true" selection-start-line="382" selection-start-column="19" selection-end-line="382" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrakciovezetoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="134" column="39" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/statisztika.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="173" column="38" lean-forward="true" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frakciovezeto/statisztika_top.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="119" column="87" selection-start-line="119" selection-start-column="87" selection-end-line="119" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatisztikaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="360" column="36" selection-start-line="360" selection-start-column="36" selection-end-line="360" selection-end-column="36" />
+          <folding>
+            <element signature="e#40#53#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -176,7 +176,7 @@
                     type: 'post',
                     contentType: 'application/x-www-form-urlencoded',
                     data: $("form").serialize(),
-                    success: function( response, textStatus, jQxhr ){
+                    success: function( response, textStatus, jQxhr ) {
 
                         console.log(""+JSON.stringify(response.response.kovetokSzama));
 

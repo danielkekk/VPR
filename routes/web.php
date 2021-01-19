@@ -97,6 +97,8 @@ Route::get('/statisztika-orszmedia', 'FrakciovezetoController@getOrszMediakStati
 Route::get('/statisztika-orszmedia-poszt/{orszmedia}', 'StatisztikaController@orszMediaPoszt')->name('statisztika-orszmedia-poszt')->middleware('frakciovezeto');
 Route::get('/statisztika-localmedia', 'FrakciovezetoController@getLocalMediakStatisztika')->name('statisztika-localmedia')->middleware('frakciovezeto');
 Route::get('/statisztika-localmedia-poszt/{localmedia}', 'StatisztikaController@localMediaPoszt')->name('statisztika-localmedia-poszt')->middleware('frakciovezeto');
+Route::get('/statisztika-top', 'FrakciovezetoController@getTopStatisztika')->name('statisztika-top')->middleware('frakciovezeto');
+Route::post('/statisztika-top-kimutatas', 'StatisztikaController@topKimutatas')->name('statisztika-top-kimutatas')->middleware('frakciovezeto');
 
 
 /*userguest*/

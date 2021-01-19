@@ -173,28 +173,28 @@
                         let rowa = table.insertRow(0);
                         let cella = rowa.insertCell(0);
                         cella.innerHTML = "Követők száma: " + response.kepviselo_datas.kovetok_szama;
-                        cella.colSpan = "6";
+                        cella.colSpan = "9";
                         let rowb = table.insertRow(0);
                         let cellb = rowb.insertCell(0);
                         cellb.innerHTML = "Új követők: " + response.kepviselo_datas.uj_kovetok;
-                        cellb.colSpan = "6";
+                        cellb.colSpan = "9";
 
                         let row = table.insertRow(0);
                         let cell1 = row.insertCell(0);
                         cell1.innerHTML = "Átlagos hatékonyság: " + response.kepviselo_datas.sum_atlag_hm;
-                        cell1.colSpan = "6";
+                        cell1.colSpan = "9";
                         let row1 = table.insertRow(0);
                         let cell2 = row1.insertCell(0);
                         cell2.innerHTML = "Átlag napi poszt: " + response.kepviselo_datas.atlag_napi_poszt;
-                        cell2.colSpan = "6";
+                        cell2.colSpan = "9";
                         let row2 = table.insertRow(0);
                         let cell3 = row2.insertCell(0);
                         cell3.innerHTML = "Inaktív napok száma: " + response.kepviselo_datas.inaktiv_napok;
-                        cell3.colSpan = "6";
+                        cell3.colSpan = "9";
                         let row3 = table.insertRow(0);
                         let cell4 = row3.insertCell(0);
                         cell4.innerHTML = "Reakciók: " + response.kepviselo_datas.sum_reakciok;
-                        cell4.colSpan = "6";
+                        cell4.colSpan = "9";
                         let row4 = table.insertRow(0);
                         let cell5 = row4.insertCell(0);
                         let cell6 = row4.insertCell(1);
@@ -202,12 +202,17 @@
                         let cell8 = row4.insertCell(3);
                         let cell9 = row4.insertCell(4);
                         let cell10 = row4.insertCell(5);
+                        let cell10a = row4.insertCell(6);
+                        let cell10b = row4.insertCell(7);
                         cell5.innerHTML = "" + response.kepviselo_datas.sum_poszt;
-                        cell6.innerHTML = "" + response.kepviselo_datas.sum_altalanos;
+                        cell6.innerHTML = "" + response.kepviselo_datas.sum_sajat;
+                        cell6.innerHTML = "" + response.kepviselo_datas.sum_szemelyes;
                         cell7.innerHTML = "" + response.kepviselo_datas.sum_alpolg;
                         cell8.innerHTML = "" + response.kepviselo_datas.sum_polg;
-                        cell9.innerHTML = "" + response.kepviselo_datas.sum_privat;
-                        cell10.innerHTML = "" + response.kepviselo_datas.sum_ogykepviselo;
+                        cell9.innerHTML = "" + response.kepviselo_datas.sum_csoportoldal;
+                        cell10.innerHTML = "" + response.kepviselo_datas.sum_media;
+                        cell10a.innerHTML = "" + response.kepviselo_datas.sum_kepviselotars;
+                        cell10b.innerHTML = "" + response.kepviselo_datas.sum_egyeb;
                         let row5 = table.insertRow(0);
                         let cell11 = row5.insertCell(0);
                         let cell12 = row5.insertCell(1);
@@ -215,12 +220,18 @@
                         let cell14 = row5.insertCell(3);
                         let cell15 = row5.insertCell(4);
                         let cell16 = row5.insertCell(5);
+                        let cell17 = row5.insertCell(6);
+                        let cell18 = row5.insertCell(7);
+                        let cell19 = row5.insertCell(8);
                         cell11.innerHTML = "Összes poszt";
-                        cell12.innerHTML = "Általános";
-                        cell13.innerHTML = "Alpolgármesteri";
-                        cell14.innerHTML = "Polgármesteri";
-                        cell15.innerHTML = "Személyes";
-                        cell16.innerHTML = "Ogy. képviselő";
+                        cell12.innerHTML = "Saját";
+                        cell13.innerHTML = "Személyes";
+                        cell14.innerHTML = "Alpolgármesteri";
+                        cell15.innerHTML = "Polgármesteri";
+                        cell16.innerHTML = "Csoportoldal";
+                        cell17.innerHTML = "Média";
+                        cell18.innerHTML = "Képviselőtárs";
+                        cell19.innerHTML = "Egyéb";
 
                         ctx = document.getElementById("canvas").getContext('2d');
                         ctx.canvas.width = 400;
@@ -229,18 +240,25 @@
                             type: 'polarArea',
                             data: {
                                 datasets: [{
-                                    data: [response.kepviselo_datas.sum_altalanos,
-                                        response.kepviselo_datas.sum_alpolg,
+                                    data: [response.kepviselo_datas.sum_sajat,
+                                        response.kepviselo_datas.sum_szemelyes,
                                         response.kepviselo_datas.sum_polg,
-                                        response.kepviselo_datas.sum_privat,
-                                        response.kepviselo_datas.sum_ogykepviselo]
+                                        response.kepviselo_datas.sum_alpolg,
+                                        response.kepviselo_datas.sum_csoportoldal,
+                                        response.kepviselo_datas.sum_media,
+                                        response.kepviselo_datas.sum_kepviselotars,
+                                        response.kepviselo_datas.sum_egyeb
+                                    ]
                                 }],
                                 labels: [
-                                    'Általános',
-                                    'Alpolgármesteri',
-                                    'Polgármesteri',
+                                    'Saját',
                                     'Személyes',
-                                    'Ogy képviselő',
+                                    'Polgármesteri',
+                                    'Alpolgármesteri',
+                                    'Csoportoldal',
+                                    'Média',
+                                    'Képviselőtárs',
+                                    'Egyéb',
                                 ]
                             },
                             options: {
