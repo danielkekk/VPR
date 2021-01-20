@@ -76,16 +76,19 @@
                     }
                 ?>
                 <br><br><br>
-                    <?php
-                    foreach($napiposztok as $napiposzt) {
-                        echo '<span style="color: red; font-weight: bold;">' . $napiposzt['tipus'] . '&nbsp;('.$napiposzt['reakcio'].')</span>&nbsp;&nbsp;&nbsp;<a href="'.url("/fra-deletekepviseloposztbyid/{$kepviseloposztid}/{$napiposzt['id']}").'">[X]</a><br>';
-                    }
-                    ?>
+                <?php
+                foreach($napiposztok as $napiposzt) {
+                    echo '<span style="color: red; font-weight: bold;">' . $napiposzt['tipus'] . '&nbsp;('.$napiposzt['reakcio'].')</span>&nbsp;&nbsp;&nbsp;<a href="'.url("/fra-deletekepviseloposztbyid/{$kepviseloposztid}/{$napiposzt['id']}").'">[X]</a><br>';
+                }
+                ?>
 
-                    <br><br><br>
+                <br><br><br>
                 <form id="ujfkepviseloposztedit-form" action="{{ url('/fra-editkepviseloposztsave') }}" method="POST">
                     <?php echo csrf_field(); ?>
                     <input type="hidden" name="azon" id="azon" value="<?php echo $kepviseloposztid;?>"/>
+
+                    <label for="kovetok_szama">Követők száma</label>
+                    <input type="number" name="kovetok_szama" id="reakcio" placeholder="Követők száma" min="0" step="1" required="true" value="<?php echo $kovetokSzama; ?>"/><br>
 
                     <label for="reakcio">Reakció</label>
                     <input type="number" name="reakcio" id="reakcio" placeholder="Reakciók (db)" min="0"/><br>

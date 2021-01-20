@@ -87,6 +87,9 @@
                     <?php echo csrf_field(); ?>
                     <input type="hidden" name="azon" id="azon" value="<?php echo $localmediaposztid;?>"/>
 
+                    <label for="kovetok_szama">Követők száma</label>
+                    <input type="number" name="kovetok_szama" id="reakcio" placeholder="Követők száma" min="0" step="1" required="true" value="<?php echo $kovetokSzama; ?>"/><br>
+
                     <label for="reakcio">Reakció</label>
                     <input type="number" name="reakcio" id="reakcio" placeholder="Reakciók (db)" min="0"/><br>
 

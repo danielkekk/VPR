@@ -13,7 +13,7 @@
                 <a href="{{ url('/ujorszmediaposzt') }}">Új orsz. média poszt</a>
                 <!--<a href="{{ url('/kepviseloposztok') }}">Képviselőposztok</a>-->
                 <a href="{{ url('/ogykepviseloposztok') }}">Ogy. képviselőposztok</a>
-                <a href="{{ url('/orszmediaposztok') }}">Új orsz.média posztok</a>
+                <a href="{{ url('/orszmediaposztok') }}">Orsz.média posztok</a>
             <?php } else if(Auth::user()->role == 2) { ?>
                 <a href="{{ url('/fra-ujkepviselo') }}">Új képviselő</a>
                 <a href="{{ url('/fra-ujkepviseloposzt') }}">Új képviselőposzt</a>

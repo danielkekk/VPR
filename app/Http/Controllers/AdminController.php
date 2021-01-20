@@ -453,6 +453,7 @@ class AdminController extends Controller
 
         return view('admin.editogykepviseloposzt', [
             'ogykepviseloposztid' => trim($id),
+            'kovetokSzama' => (int)$napiposztok->kovetok_szama,
             'poszttipusok' => $poszttipusok,
             'napiposztok' => json_decode($napiposztok->posztok, true)
         ]);
@@ -470,6 +471,7 @@ class AdminController extends Controller
 
         $validator = Validator::make($request->all(), [
             'azon' => 'required|integer|digits_between:0,10000000',
+            'kovetok_szama' => 'required|integer',
             'reakcio' => 'required|integer|digits_between:0,1000000',
             'poszttipus' => 'required|integer|min:1|max:1000',
             'url' => 'required|string|max:250',
@@ -509,6 +511,7 @@ class AdminController extends Controller
         ];
         $posztok[] = $ujposzt;
 
+        $napiOgyKepviseloPoszt->kovetok_szama = $request->kovetok_szama;
         $napiOgyKepviseloPoszt->posztok = json_encode($posztok);
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $napiOgyKepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
@@ -710,6 +713,7 @@ class AdminController extends Controller
 
         return view('admin.editorszmediaposzt', [
             'orszmediaposztid' => trim($id),
+            'kovetokSzama' => (int)$napiposztok->kovetok_szama,
             'poszttipusok' => $poszttipusok,
             'napiposztok' => json_decode($napiposztok->posztok, true)
         ]);
@@ -727,6 +731,7 @@ class AdminController extends Controller
 
         $validator = Validator::make($request->all(), [
             'azon' => 'required|integer|digits_between:0,10000000',
+            'kovetok_szama' => 'required|integer',
             'reakcio' => 'required|integer|digits_between:0,1000000',
             'poszttipus' => 'required|integer|min:1|max:1000',
             'url' => 'required|string|max:250',
@@ -766,6 +771,7 @@ class AdminController extends Controller
         ];
         $posztok[] = $ujposzt;
 
+        $napiOrszMediaPoszt->kovetok_szama = $request->kovetok_szama;
         $napiOrszMediaPoszt->posztok = json_encode($posztok);
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $napiOrszMediaPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
@@ -985,16 +991,55 @@ class AdminController extends Controller
         //ha nincs insert
         //ha van lekérdezzük és hozzáadjuk a poszt adatot a json listához
 
+        //input ellenőrzés
+        foreach($array as $a) {
+            foreach ($a as $b) {
+                foreach ($b as $c) {
+                    $arr = explode(";", $c);
+                    $arr[0] = preg_replace('/\D/', '', trim($arr[0]));
+                    $arr[1] = preg_replace('/\D/', '', trim($arr[1]));
+                    $arr[2] = preg_replace('/\D/', '', trim($arr[2]));
+                    $arr[3] = preg_replace('/\D/', '', trim($arr[3]));
+                    $arr[4] = trim($arr[4]);
+
+                    if (!isset($arr[0]) || empty($arr[0])) {
+                        print_r("A dátum mező üres."); exit;
+                    }
+
+                    if (mb_strlen($arr[0]) != 8) {
+                        print_r("Helytelen dátum érték: " . $arr[0]); exit;
+                    }
+
+                    if (empty(!isset($arr[1]) || $arr[1])) {
+                        print_r("A követők száma mező üres."); exit;
+                    }
+
+                    if (empty(!isset($arr[2]) || $arr[2])) {
+                        print_r("A poszt reakció mező üres."); exit;
+                    }
+
+                    if (empty(!isset($arr[3]) || $arr[3])) {
+                        print_r("A poszt típus mező üres."); exit;
+                    }
+
+                    if (empty(!isset($arr[4]) || $arr[4])) {
+                        print_r("A poszt url mező üres."); exit;
+                    }
+                }
+            }
+        }
+
         foreach($array as $a) {
             foreach($a as $b) {
                 foreach($b as $c) {
                     $arr = explode(";", $c);
-                    $datum = preg_replace('/\D/', '', trim($arr[0]));
-                    $posztDatum = new \DateTime($datum);
+                    $arr[0] = preg_replace('/\D/', '', trim($arr[0]));
+                    $arr[1] = preg_replace('/\D/', '', trim($arr[1]));
+                    $arr[2] = preg_replace('/\D/', '', trim($arr[2]));
+                    $arr[3] = preg_replace('/\D/', '', trim($arr[3]));
+                    $arr[4] = trim($arr[4]);
 
-                    if(mb_strlen($datum) != 8) {
-                        //continue;
-                    }
+                    $posztDatum = new \DateTime($arr[0]);
 
                     /*
                      * 1 => 'Képviselő poszt',

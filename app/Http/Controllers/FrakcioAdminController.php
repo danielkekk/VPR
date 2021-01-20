@@ -212,12 +212,13 @@ class FrakcioAdminController extends Controller
         }
 
         $poszttipusok = PosztTipusok::all();
-        $napiposztok = KepviseloPoszt::where('id','=',trim($id))->first();
+        $kepviseloPoszt = KepviseloPoszt::where('id','=',trim($id))->first();
 
         return view('frakcioadmin.fra-editkepviseloposzt', [
             'kepviseloposztid' => trim($id),
+            'kovetokSzama' => (int)$kepviseloPoszt->kovetok_szama,
             'poszttipusok' => $poszttipusok,
-            'napiposztok' => json_decode($napiposztok->posztok, true)
+            'napiposztok' => json_decode($kepviseloPoszt->posztok, true)
         ]);
     }
 
@@ -233,6 +234,7 @@ class FrakcioAdminController extends Controller
 
         $validator = Validator::make($request->all(), [
             'azon' => 'required|integer|digits_between:0,10000000',
+            'kovetok_szama' => 'required|integer',
             'reakcio' => 'required|integer|digits_between:0,1000000',
             'poszttipus' => 'required|integer|min:1|max:1000',
             'url' => 'required|string|max:250',
@@ -280,6 +282,7 @@ class FrakcioAdminController extends Controller
         ];
         $posztok[] = $ujposzt;
 
+        $napiKepviseloPoszt->kovetok_szama = $request->kovetok_szama;
         $napiKepviseloPoszt->posztok = json_encode($posztok);
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $napiKepviseloPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
@@ -491,6 +494,7 @@ class FrakcioAdminController extends Controller
 
         return view('frakcioadmin.fra-editlocalmediaposzt', [
             'localmediaposztid' => trim($id),
+            'kovetokSzama' => (int)$napiposztok->kovetok_szama,
             'poszttipusok' => $poszttipusok,
             'napiposztok' => json_decode($napiposztok->posztok, true)
         ]);
@@ -508,6 +512,7 @@ class FrakcioAdminController extends Controller
 
         $validator = Validator::make($request->all(), [
             'azon' => 'required|integer|digits_between:0,10000000',
+            'kovetok_szama' => 'required|integer',
             'reakcio' => 'required|integer|digits_between:0,1000000',
             'poszttipus' => 'required|integer|min:1|max:1000',
             'url' => 'required|string|max:250',
@@ -547,6 +552,7 @@ class FrakcioAdminController extends Controller
         ];
         $posztok[] = $ujposzt;
 
+        $napiLocalMediaPoszt->kovetok_szama = $request->kovetok_szama;
         $napiLocalMediaPoszt->posztok = json_encode($posztok);
         $posztTipusokSum = PostStat::getSumPosztTipusok($posztok);
         $napiLocalMediaPoszt->stat_poszt_sum = PostStat::getSumPoszt($posztok);
