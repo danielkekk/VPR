@@ -114,7 +114,7 @@ class AdminController extends Controller
                 ->withInput();
         }
 
-        $letezikKepviseloPoszt = KepviseloPoszt::where('users_id','=',trim($request->kepviselo))
+        /*$letezikKepviseloPoszt = KepviseloPoszt::where('users_id','=',trim($request->kepviselo))
             ->where('ev','=',$posztDatum->format('Y'))
             ->where('honap','=',$posztDatum->format('m'))
             ->where('nap','=',$posztDatum->format('d'))
@@ -126,7 +126,7 @@ class AdminController extends Controller
             return redirect('ujkepviseloposzt')
                 ->withErrors($messageBag)
                 ->withInput();
-        }
+        }*/
 
         $posztok = [];
 
@@ -380,7 +380,7 @@ class AdminController extends Controller
                 ->withInput();
         }
 
-        $letezikOgyKepviseloPoszt = OgyKepviseloPoszt::where('ogykepviselo_id','=',trim($request->ogykepviselo))
+        /*$letezikOgyKepviseloPoszt = OgyKepviseloPoszt::where('ogykepviselo_id','=',trim($request->ogykepviselo))
             ->where('ev','=',$posztDatum->format('Y'))
             ->where('honap','=',$posztDatum->format('m'))
             ->where('nap','=',$posztDatum->format('d'))
@@ -392,7 +392,7 @@ class AdminController extends Controller
             return redirect('ujogykepviseloposzt')
                 ->withErrors($messageBag)
                 ->withInput();
-        }
+        }*/
 
         $posztok = [];
 
@@ -640,7 +640,7 @@ class AdminController extends Controller
                 ->withInput();
         }
 
-        $letezikOrszMediaPoszt = OrszMediaPoszt::where('media_id','=',trim($request->orszmedia))
+        /*$letezikOrszMediaPoszt = OrszMediaPoszt::where('media_id','=',trim($request->orszmedia))
             ->where('ev','=',$posztDatum->format('Y'))
             ->where('honap','=',$posztDatum->format('m'))
             ->where('nap','=',$posztDatum->format('d'))
@@ -652,7 +652,7 @@ class AdminController extends Controller
             return redirect('ujorszmediaposzt')
                 ->withErrors($messageBag)
                 ->withInput();
-        }
+        }*/
 
         $posztok = [];
 

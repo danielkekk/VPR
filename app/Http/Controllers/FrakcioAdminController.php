@@ -111,7 +111,7 @@ class FrakcioAdminController extends Controller
                 ->withInput();
         }
 
-        $letezikKepviseloPoszt = KepviseloPoszt::where('users_id','=',trim($request->kepviselo))
+        /*$letezikKepviseloPoszt = KepviseloPoszt::where('users_id','=',trim($request->kepviselo))
             ->where('ev','=',$posztDatum->format('Y'))
             ->where('honap','=',$posztDatum->format('m'))
             ->where('nap','=',$posztDatum->format('d'))
@@ -123,7 +123,7 @@ class FrakcioAdminController extends Controller
             return redirect('fra-ujkepviseloposzt')
                 ->withErrors($messageBag)
                 ->withInput();
-        }
+        }*/
 
         $posztok = [];
 
@@ -421,7 +421,7 @@ class FrakcioAdminController extends Controller
                 ->withInput();
         }
 
-        $letezikLocalMediaPoszt = LocalMediaPoszt::where('media_id','=',trim($request->localmedia))
+        /*$letezikLocalMediaPoszt = LocalMediaPoszt::where('media_id','=',trim($request->localmedia))
             ->where('ev','=',$posztDatum->format('Y'))
             ->where('honap','=',$posztDatum->format('m'))
             ->where('nap','=',$posztDatum->format('d'))
@@ -433,7 +433,7 @@ class FrakcioAdminController extends Controller
             return redirect('fra-ujlocalmediaposzt')
                 ->withErrors($messageBag)
                 ->withInput();
-        }
+        }*/
 
         $posztok = [];
 
